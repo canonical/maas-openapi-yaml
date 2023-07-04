@@ -7446,7 +7446,7 @@ paths:
             text/plain:
               schema:
                 type: string
-          description: "connection to server on socket \"/work/db/.s.PGSQL.5432\"\
+          description: "connection to server on socket \"/run/build/maas/db/.s.PGSQL.5432\"\
             \ failed: No such file or directory\n\tIs the server running locally and\
             \ accepting connections on that socket?\n"
       summary: NetworkHandler list_connected_macs
@@ -9800,9 +9800,6 @@ paths:
                 accept_ra:
                   description: Accept router advertisements. (IPv6 only)
                   type: boolean
-                autoconf:
-                  description: Perform stateless autoconfiguration. (IPv6 only)
-                  type: boolean
                 bond_downdelay:
                   description: Specifies the time, in milliseconds, to wait before
                     disabling a slave after a link failure has been detected.
@@ -9919,9 +9916,6 @@ paths:
                 accept_ra:
                   description: Accept router advertisements. (IPv6 only)
                   type: boolean
-                autoconf:
-                  description: Perform stateless autoconfiguration. (IPv6 only)
-                  type: boolean
                 bridge_fd:
                   description: 'Set bridge forward delay to time seconds. (Default:
                     15).'
@@ -9995,9 +9989,6 @@ paths:
                 accept_ra:
                   description: Accept router advertisements. (IPv6 only)
                   type: boolean
-                autoconf:
-                  description: Perform stateless autoconfiguration. (IPv6 only)
-                  type: boolean
                 mac_address:
                   description: MAC address of the interface.
                   type: string
@@ -10058,9 +10049,6 @@ paths:
               properties:
                 accept_ra:
                   description: Accept router advertisements. (IPv6 only)
-                  type: boolean
-                autoconf:
-                  description: Perform stateless autoconfiguration. (IPv6 only)
                   type: boolean
                 mtu:
                   description: Maximum transmission unit.
@@ -10201,9 +10189,6 @@ paths:
               properties:
                 accept_ra:
                   description: Accept router advertisements. (IPv6 only)
-                  type: string
-                autoconf:
-                  description: Perform stateless autoconfiguration. (IPv6 only)
                   type: string
                 bond_downdelay:
                   description: (Bonds) Specifies the time, in milliseconds, to wait
