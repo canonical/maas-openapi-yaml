@@ -4342,9 +4342,9 @@ paths:
                     use of MAAS''s DHCP services. :prefer_v4_proxy: Sets IPv4 DNS
                     resolution before IPv6. If prefer_v4_proxy is set, the proxy will
                     be set to prefer IPv4 DNS resolution before it attempts to perform
-                    IPv6 DNS resolution. :prometheus_enabled: Enable sending stats
-                    to a prometheus gateway.. Allows MAAS to send statistics to Prometheus.
-                    This requires the ''prometheus_push_gateway'' to be set. :prometheus_push_gateway:
+                    IPv6 DNS resolution. :prometheus_enabled: Enable Prometheus exporter.
+                    Whether to enable Prometheus exporter functions, including Cluster
+                    metrics endpoint and Push gateway (if configured). :prometheus_push_gateway:
                     Address or hostname of the Prometheus push gateway.. Defines the
                     address or hostname of the Prometheus push gateway where MAAS
                     will send data to. :prometheus_push_interval: Interval of how
@@ -4538,9 +4538,9 @@ paths:
                     use of MAAS''s DHCP services. :prefer_v4_proxy: Sets IPv4 DNS
                     resolution before IPv6. If prefer_v4_proxy is set, the proxy will
                     be set to prefer IPv4 DNS resolution before it attempts to perform
-                    IPv6 DNS resolution. :prometheus_enabled: Enable sending stats
-                    to a prometheus gateway.. Allows MAAS to send statistics to Prometheus.
-                    This requires the ''prometheus_push_gateway'' to be set. :prometheus_push_gateway:
+                    IPv6 DNS resolution. :prometheus_enabled: Enable Prometheus exporter.
+                    Whether to enable Prometheus exporter functions, including Cluster
+                    metrics endpoint and Push gateway (if configured). :prometheus_push_gateway:
                     Address or hostname of the Prometheus push gateway.. Defines the
                     address or hostname of the Prometheus push gateway where MAAS
                     will send data to. :prometheus_push_interval: Interval of how
