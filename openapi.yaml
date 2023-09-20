@@ -15377,6 +15377,26 @@ paths:
       required: true
       schema:
         type: string
+  /switch-boot-order/{system_id}/:
+    parameters:
+    - in: path
+      name: system_id
+      required: true
+      schema:
+        type: string
+    put:
+      description: Internal endpoint to switch boot order of a machine
+      operationId: SwitchBootOrderHandler_update
+      responses:
+        '404':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: '''str'' object has no attribute ''data'''
+      summary: SwitchBootOrderHandler update
+      tags:
+      - SwitchBootOrder
   /tags/:
     get:
       description: Outputs a JSON object containing an array of all currently defined
