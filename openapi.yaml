@@ -5794,10 +5794,6 @@ paths:
                   description: If true, the rack controller will be installed on this
                     machine.
                   type: boolean
-                osystem:
-                  description: If present, this parameter specifies the OS the machine
-                    will use.
-                  type: string
                 register_vmhost:
                   description: If true, the machine will be registered as a LXD VM
                     host in MAAS.
@@ -14195,8 +14191,8 @@ paths:
         `/script/?type=testing`.'
       operationId: NodeScriptsHandler_read
       parameters:
-      - description: Only return scripts with the given type. This can be `testing`
-          or `commissioning`. Defaults to showing both.
+      - description: Only return scripts with the given type. This can be `commissioning`,
+          `testing` or `release`. Defaults to showing all.
         in: query
         name: type
         required: false
@@ -14300,7 +14296,7 @@ paths:
                   type: string
                 type:
                   description: 'The script_type defines when the script should be
-                    used: `testing` or `commissioning`. Defaults to `testing`.'
+                    used: `commissioning` or `testing` or `release`. Defaults to `testing`.'
                   type: string
               required:
               - name
@@ -14455,7 +14451,7 @@ paths:
                   type: string
                 type:
                   description: The type defines when the script should be used. Can
-                    be `testing` or `commissioning`, defaults to `testing`.
+                    be `commissioing`, `testing` or `release`. It defaults to `testing`.
                   type: string
               type: object
         required: true
