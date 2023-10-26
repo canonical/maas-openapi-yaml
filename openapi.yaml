@@ -3485,44 +3485,6 @@ paths:
       required: true
       schema:
         type: string
-  /image-sync-progress/{file_id}/{system_id}/:
-    get:
-      description: Internal endpoint to update progress of image sync
-      operationId: ImageSyncProgressHandler_read
-      responses:
-        '404':
-          content:
-            text/plain:
-              schema:
-                type: string
-          description: Field 'id' expected a number but got ''.
-      summary: ImageSyncProgressHandler read
-      tags:
-      - ImageSyncProgress
-    parameters:
-    - in: path
-      name: file_id
-      required: true
-      schema:
-        type: string
-    - in: path
-      name: system_id
-      required: true
-      schema:
-        type: string
-    put:
-      description: Internal endpoint to update progress of image sync
-      operationId: ImageSyncProgressHandler_update
-      responses:
-        '404':
-          content:
-            text/plain:
-              schema:
-                type: string
-          description: '''str'' object has no attribute ''data'''
-      summary: ImageSyncProgressHandler update
-      tags:
-      - ImageSyncProgress
   /installation-results/:
     get:
       description: Read the commissioning results per node visible to the user, optionally
