@@ -12155,6 +12155,16 @@ paths:
               additionalProperties:
                 type: string
               properties:
+                certificate:
+                  description: X.509 certificate used to verify the identity of the
+                    user. If `certificate` and `key` are not provided, and the VM
+                    created is LXD type, a X.509 certificate will be created.
+                  type: string
+                key:
+                  description: private key used for authentication. If `certificate`
+                    and `key` are not provided, and the VM created is LXD type, a
+                    RSA key will be created.
+                  type: string
                 name:
                   description: The new VM host's name.
                   type: string
@@ -16068,6 +16078,16 @@ paths:
               additionalProperties:
                 type: string
               properties:
+                certificate:
+                  description: X.509 certificate used to verify the identity of the
+                    user. If `certificate` and `key` are not provided, and the VM
+                    created is LXD type, a X.509 certificate will be created.
+                  type: string
+                key:
+                  description: private key used for authentication. If `certificate`
+                    and `key` are not provided, and the VM created is LXD type, a
+                    RSA key will be created.
+                  type: string
                 name:
                   description: The new VM host's name.
                   type: string
