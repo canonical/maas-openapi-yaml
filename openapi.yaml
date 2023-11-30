@@ -10782,7 +10782,7 @@ paths:
         schema:
           type: string
       - description: Only return scripts with the given type. This can be `commissioning`,
-          `testing`, or `installion`. Defaults to showing all.
+          `testing`, `installion` or `release`. Defaults to showing all.
         in: query
         name: type
         required: false
