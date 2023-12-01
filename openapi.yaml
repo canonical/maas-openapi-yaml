@@ -4113,7 +4113,8 @@ paths:
           \ 5247). Defines the port used to bind the built-in syslog. The default\
           \ port is 5247.\n* `max_node_commissioning_results` The maximum number of\
           \ commissioning results runs which are stored.\n* `max_node_installation_results`\
-          \ The maximum number of installation result runs which are stored.\n* `max_node_testing_results`\
+          \ The maximum number of installation result runs which are stored.\n* `max_node_release_results`\
+          \ The maximum number of release result runs which are stored.\n* `max_node_testing_results`\
           \ The maximum number of testing results runs which are stored.\n* `network_discovery`\
           \  When enabled, MAAS will use passive techniques (such as listening to\
           \ ARP requests and mDNS advertisements) to observe networks attached to\
@@ -4307,32 +4308,33 @@ paths:
                     \ to bind the built-in syslog. The default port is 5247.\n* `max_node_commissioning_results`\
                     \ The maximum number of commissioning results runs which are stored.\n\
                     * `max_node_installation_results` The maximum number of installation\
-                    \ result runs which are stored.\n* `max_node_testing_results`\
-                    \ The maximum number of testing results runs which are stored.\n\
-                    * `network_discovery`  When enabled, MAAS will use passive techniques\
-                    \ (such as listening to ARP requests and mDNS advertisements)\
-                    \ to observe networks attached to rack controllers. Active subnet\
-                    \ mapping will also be available to be enabled on the configured\
-                    \ subnets.\n* `node_timeout` Time, in minutes, until the node\
-                    \ times out during commissioning, testing, deploying, or entering\
-                    \ rescue mode. Commissioning, testing, deploying, and entering\
-                    \ rescue mode all set a timeout when beginning. If MAAS does not\
-                    \ hear from the node within the specified number of minutes the\
-                    \ node is powered off and set into a failed status.\n* `ntp_external_only`\
-                    \ Use external NTP servers only. Configure all region controller\
-                    \ hosts, rack controller hosts, and subsequently deployed machines\
-                    \ to refer directly to the configured external NTP servers. Otherwise\
-                    \ only region controller hosts will be configured to use those\
-                    \ external NTP servers, rack contoller hosts will in turn refer\
-                    \ to the regions' NTP servers, and deployed machines will refer\
-                    \ to the racks' NTP servers.\n* `ntp_servers` Addresses of NTP\
-                    \ servers. NTP servers, specified as IP addresses or hostnames\
-                    \ delimited by commas and/or spaces, to be used as time references\
-                    \ for MAAS itself, the machines MAAS deploys, and devices that\
-                    \ make use of MAAS's DHCP services.\n* `prefer_v4_proxy` Sets\
-                    \ IPv4 DNS resolution before IPv6. If prefer_v4_proxy is set,\
-                    \ the proxy will be set to prefer IPv4 DNS resolution before it\
-                    \ attempts to perform IPv6 DNS resolution.\n* `prometheus_enabled`\
+                    \ result runs which are stored.\n* `max_node_release_results`\
+                    \ The maximum number of release result runs which are stored.\n\
+                    * `max_node_testing_results` The maximum number of testing results\
+                    \ runs which are stored.\n* `network_discovery`  When enabled,\
+                    \ MAAS will use passive techniques (such as listening to ARP requests\
+                    \ and mDNS advertisements) to observe networks attached to rack\
+                    \ controllers. Active subnet mapping will also be available to\
+                    \ be enabled on the configured subnets.\n* `node_timeout` Time,\
+                    \ in minutes, until the node times out during commissioning, testing,\
+                    \ deploying, or entering rescue mode. Commissioning, testing,\
+                    \ deploying, and entering rescue mode all set a timeout when beginning.\
+                    \ If MAAS does not hear from the node within the specified number\
+                    \ of minutes the node is powered off and set into a failed status.\n\
+                    * `ntp_external_only` Use external NTP servers only. Configure\
+                    \ all region controller hosts, rack controller hosts, and subsequently\
+                    \ deployed machines to refer directly to the configured external\
+                    \ NTP servers. Otherwise only region controller hosts will be\
+                    \ configured to use those external NTP servers, rack contoller\
+                    \ hosts will in turn refer to the regions' NTP servers, and deployed\
+                    \ machines will refer to the racks' NTP servers.\n* `ntp_servers`\
+                    \ Addresses of NTP servers. NTP servers, specified as IP addresses\
+                    \ or hostnames delimited by commas and/or spaces, to be used as\
+                    \ time references for MAAS itself, the machines MAAS deploys,\
+                    \ and devices that make use of MAAS's DHCP services.\n* `prefer_v4_proxy`\
+                    \ Sets IPv4 DNS resolution before IPv6. If prefer_v4_proxy is\
+                    \ set, the proxy will be set to prefer IPv4 DNS resolution before\
+                    \ it attempts to perform IPv6 DNS resolution.\n* `prometheus_enabled`\
                     \ Enable Prometheus exporter. Whether to enable Prometheus exporter\
                     \ functions, including Cluster metrics endpoint and Push gateway\
                     \ (if configured).\n* `prometheus_push_gateway` Address or hostname\
