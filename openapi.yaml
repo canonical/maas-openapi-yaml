@@ -11967,6 +11967,9 @@ paths:
                   description: The list of components to enable. Only applicable to
                     custom repositories.
                   type: string
+                disable_sources:
+                  description: Disable deb-src lines.
+                  type: boolean
                 disabled_components:
                   description: The list of components to disable. Only applicable
                     to the default Ubuntu repositories.
@@ -12089,7 +12092,7 @@ paths:
                   type: string
                 disable_sources:
                   description: Disable deb-src lines.
-                  type: string
+                  type: boolean
                 disabled_components:
                   description: The list of components to disable. Only applicable
                     to the default Ubuntu repositories.
