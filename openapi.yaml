@@ -14969,7 +14969,7 @@ paths:
               properties:
                 allow_dns:
                   description: Configure MAAS DNS to allow DNS resolution from this
-                    subnet. '0' = False,'1' = True.
+                    subnet. '0' = False, '1' = True.
                   type: integer
                 allow_proxy:
                   description: Configure maas-proxy to allow requests from this subnet.
@@ -15018,7 +15018,7 @@ paths:
                     - `0` Disabled: No reverse zone is created. - `1` Enabled: Generate
                     reverse zone. - `2` RFC2317: Extends ''1'' to create the necessary
                     parent zone with the appropriate CNAME resource records for the
-                    network, if the the network is small enough to require the support
+                    network, if the network is small enough to require the support
                     described in RFC2317.'
                   type: integer
                 vid:
@@ -15121,7 +15121,7 @@ paths:
               properties:
                 allow_dns:
                   description: Configure MAAS DNS to allow DNS resolution from this
-                    subnet. '0' = False,'1' = True.
+                    subnet. '0' = False, '1' = True.
                   type: integer
                 allow_proxy:
                   description: Configure maas-proxy to allow requests from this subnet.
@@ -15170,7 +15170,7 @@ paths:
                     - `0` Disabled: No reverse zone is created. - `1` Enabled: Generate
                     reverse zone. - `2` RFC2317: Extends ''1'' to create the necessary
                     parent zone with the appropriate CNAME resource records for the
-                    network, if the the network is small enough to require the support
+                    network, if the network is small enough to require the support
                     described in RFC2317.'
                   type: integer
                 vid:
