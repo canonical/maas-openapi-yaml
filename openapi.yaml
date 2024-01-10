@@ -12851,21 +12851,16 @@ paths:
       - RackControllers
   /rackcontrollers/op-import_boot_images:
     post:
-      description: Imports boot images on all rack controllers.
+      deprecated: true
+      description: Imports boot images on all rack controllers. (deprecated)
       operationId: RackControllersHandler_import_boot_images
       responses:
-        '200':
+        '202':
           content:
             text/plain:
               schema:
                 type: string
-          description: Import of boot images started on all rack controllers
-        '404':
-          content:
-            text/plain:
-              schema:
-                type: string
-          description: The requested rack controller system_id is not found.
+          description: No action
       summary: Import boot images on all rack controllers
       tags:
       - RackControllers
@@ -13210,7 +13205,9 @@ paths:
       schema:
         type: string
     post:
+      deprecated: true
       description: Import boot images on a given rack controller or all rack controllers.
+        (deprecated)
       operationId: RackControllerHandler_import_boot_images
       parameters:
       - description: A rack controller system_id.
@@ -13220,12 +13217,12 @@ paths:
         schema:
           type: string
       responses:
-        '200':
+        '202':
           content:
             text/plain:
               schema:
                 type: string
-          description: Import of boot images started on <rack controller name>
+          description: No action
         '404':
           content:
             text/plain:
@@ -13237,8 +13234,9 @@ paths:
       - RackController
   /rackcontrollers/{system_id}/op-list_boot_images:
     get:
+      deprecated: true
       description: Lists all available boot images for a given rack controller system_id
-        and whether they are in sync with the region controller.
+        and whether they are in sync with the region controller. (deprecated)
       operationId: RackControllerHandler_list_boot_images
       parameters:
       - description: The rack controller system_id for which you want to list boot
