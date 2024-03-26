@@ -4028,57 +4028,61 @@ paths:
           \ configuration items:\n* `active_discovery_interval` Active subnet mapping\
           \ interval. When enabled, each rack will scan subnets enabled for active\
           \ mapping. This helps ensure discovery information is accurate and complete.\n\
-          * `boot_images_auto_import` Automatically import/refresh the boot images\
-          \ every 60 minutes.\n* `boot_images_no_proxy` Set no_proxy with the image\
-          \ repository address when MAAS is behind (or set with) a proxy. By default,\
-          \ when MAAS is behind (and set with) a proxy, it is used to download images\
-          \ from the image repository. In some situations (e.g. when using a local\
-          \ image repository) it doesn't make sense for MAAS to use the proxy to download\
-          \ images because it can access them directly. Setting this option allows\
-          \ MAAS to access the (local) image repository directly by setting the no_proxy\
-          \ variable for the MAAS env with the address of the image repository.\n\
-          * `commissioning_distro_series` Default Ubuntu release used for commissioning.\n\
-          * `completed_intro` Marks if the initial intro has been completed.\n* `curtin_verbose`\
-          \ Run the fast-path installer with higher verbosity. This provides more\
-          \ detail in the installation logs.\n* `default_distro_series` Default OS\
-          \ release used for deployment.\n* `default_dns_ttl` Default Time-To-Live\
-          \ for the DNS. If no TTL value is specified at a more specific point this\
-          \ is how long DNS responses are valid, in seconds.\n* `default_min_hwe_kernel`\
-          \ Default Minimum Kernel Version. The default minimum kernel version used\
-          \ on all new and commissioned nodes.\n* `default_osystem` Default operating\
-          \ system used for deployment.\n* `default_storage_layout` Default storage\
-          \ layout. Storage layout that is applied to a node when it is commissioned.\
-          \ Available choices are:\n  + `bcache` (Bcache layout).\n  + `blank` (No\
-          \ storage (blank) layout).\n  + `custom` (Custom layout (from commissioning\
-          \ storage config).\n  + `flat` (Flat layout).\n  + `lvm` (LVM layout).\n\
-          \  + `vmfs6` (VMFS6 layout).\n  + `vmfs7` (VMFS7 layout).\n* `disk_erase_with_quick_erase`\
-          \ Use quick erase by default when erasing disks. This is not a secure erase;\
-          \ it wipes only the beginning and end of each disk.\n* `disk_erase_with_secure_erase`\
-          \ Use secure erase by default when erasing disks. Will only be used on devices\
-          \ that support secure erase. Other devices will fall back to full wipe or\
-          \ quick erase depending on the selected options.\n* `dns_trusted_acl` List\
-          \ of external networks (not previously known), that will be allowed to use\
-          \ MAAS for DNS resolution. MAAS keeps a list of networks that are allowed\
-          \ to use MAAS for DNS resolution. This option allows to add extra networks\
-          \ (not previously known) to the trusted ACL where this list of networks\
-          \ is kept. It also supports specifying IPs or ACL names.\n* `dnssec_validation`\
-          \ Enable DNSSEC validation of upstream zones. Only used when MAAS is running\
-          \ its own DNS server. This value is used as the value of 'dnssec_validation'\
-          \ in the DNS server config.\n* `enable_analytics` Enable Google Analytics\
-          \ in MAAS UI to shape improvements in user experience.\n* `enable_disk_erasing_on_release`\
-          \ Erase nodes' disks prior to releasing. Forces users to always erase disks\
-          \ when releasing.\n* `enable_http_proxy` Enable the use of an APT or YUM\
-          \ and HTTP/HTTPS proxy. Provision nodes to use the built-in HTTP proxy (or\
-          \ user specified proxy) for APT or YUM. MAAS also uses the proxy for downloading\
-          \ boot images.\n* `enable_third_party_drivers` Enable the installation of\
-          \ proprietary drivers (i.e. HPVSA).\n* `enlist_commissioning` Whether to\
-          \ run commissioning during enlistment. Enables running all built-in commissioning\
-          \ scripts during enlistment.\n* `force_v1_network_yaml` Always use the legacy\
-          \ v1 YAML (rather than Netplan format, also known as v2 YAML) when composing\
-          \ the network configuration for a machine.\n* `hardware_sync_interval` Hardware\
-          \ Sync Interval. The interval to send hardware info to MAAS fromhardware\
-          \ sync enabled machines, in systemd time span syntax.\n* `http_proxy` Proxy\
-          \ for APT or YUM and HTTP/HTTPS. This will be passed onto provisioned nodes\
+          * `auto_vlan_creation` Automatically create VLANs and Fabrics for interfaces.\
+          \ Enables the creation of a default VLAN and Fabric for discovered network\
+          \ interfaces when MAAS cannot connect it to an existing one. When disabled,\
+          \ the interface is left disconnected in these cases.\n* `boot_images_auto_import`\
+          \ Automatically import/refresh the boot images every 60 minutes.\n* `boot_images_no_proxy`\
+          \ Set no_proxy with the image repository address when MAAS is behind (or\
+          \ set with) a proxy. By default, when MAAS is behind (and set with) a proxy,\
+          \ it is used to download images from the image repository. In some situations\
+          \ (e.g. when using a local image repository) it doesn't make sense for MAAS\
+          \ to use the proxy to download images because it can access them directly.\
+          \ Setting this option allows MAAS to access the (local) image repository\
+          \ directly by setting the no_proxy variable for the MAAS env with the address\
+          \ of the image repository.\n* `commissioning_distro_series` Default Ubuntu\
+          \ release used for commissioning.\n* `completed_intro` Marks if the initial\
+          \ intro has been completed.\n* `curtin_verbose` Run the fast-path installer\
+          \ with higher verbosity. This provides more detail in the installation logs.\n\
+          * `default_distro_series` Default OS release used for deployment.\n* `default_dns_ttl`\
+          \ Default Time-To-Live for the DNS. If no TTL value is specified at a more\
+          \ specific point this is how long DNS responses are valid, in seconds.\n\
+          * `default_min_hwe_kernel` Default Minimum Kernel Version. The default minimum\
+          \ kernel version used on all new and commissioned nodes.\n* `default_osystem`\
+          \ Default operating system used for deployment.\n* `default_storage_layout`\
+          \ Default storage layout. Storage layout that is applied to a node when\
+          \ it is commissioned. Available choices are:\n  + `bcache` (Bcache layout).\n\
+          \  + `blank` (No storage (blank) layout).\n  + `custom` (Custom layout (from\
+          \ commissioning storage config).\n  + `flat` (Flat layout).\n  + `lvm` (LVM\
+          \ layout).\n  + `vmfs6` (VMFS6 layout).\n  + `vmfs7` (VMFS7 layout).\n*\
+          \ `disk_erase_with_quick_erase` Use quick erase by default when erasing\
+          \ disks. This is not a secure erase; it wipes only the beginning and end\
+          \ of each disk.\n* `disk_erase_with_secure_erase` Use secure erase by default\
+          \ when erasing disks. Will only be used on devices that support secure erase.\
+          \ Other devices will fall back to full wipe or quick erase depending on\
+          \ the selected options.\n* `dns_trusted_acl` List of external networks (not\
+          \ previously known), that will be allowed to use MAAS for DNS resolution.\
+          \ MAAS keeps a list of networks that are allowed to use MAAS for DNS resolution.\
+          \ This option allows to add extra networks (not previously known) to the\
+          \ trusted ACL where this list of networks is kept. It also supports specifying\
+          \ IPs or ACL names.\n* `dnssec_validation` Enable DNSSEC validation of upstream\
+          \ zones. Only used when MAAS is running its own DNS server. This value is\
+          \ used as the value of 'dnssec_validation' in the DNS server config.\n*\
+          \ `enable_analytics` Enable Google Analytics in MAAS UI to shape improvements\
+          \ in user experience.\n* `enable_disk_erasing_on_release` Erase nodes' disks\
+          \ prior to releasing. Forces users to always erase disks when releasing.\n\
+          * `enable_http_proxy` Enable the use of an APT or YUM and HTTP/HTTPS proxy.\
+          \ Provision nodes to use the built-in HTTP proxy (or user specified proxy)\
+          \ for APT or YUM. MAAS also uses the proxy for downloading boot images.\n\
+          * `enable_third_party_drivers` Enable the installation of proprietary drivers\
+          \ (i.e. HPVSA).\n* `enlist_commissioning` Whether to run commissioning during\
+          \ enlistment. Enables running all built-in commissioning scripts during\
+          \ enlistment.\n* `force_v1_network_yaml` Always use the legacy v1 YAML (rather\
+          \ than Netplan format, also known as v2 YAML) when composing the network\
+          \ configuration for a machine.\n* `hardware_sync_interval` Hardware Sync\
+          \ Interval. The interval to send hardware info to MAAS fromhardware sync\
+          \ enabled machines, in systemd time span syntax.\n* `http_proxy` Proxy for\
+          \ APT or YUM and HTTP/HTTPS. This will be passed onto provisioned nodes\
           \ to use as a proxy for APT or YUM traffic. MAAS also uses the proxy for\
           \ downloading boot images. If no URL is provided, the built-in MAAS proxy\
           \ will be used.\n* `kernel_opts` Boot parameters to pass to the kernel by\
@@ -4210,17 +4214,21 @@ paths:
                     \ configuration items:\n* `active_discovery_interval` Active subnet\
                     \ mapping interval. When enabled, each rack will scan subnets\
                     \ enabled for active mapping. This helps ensure discovery information\
-                    \ is accurate and complete.\n* `boot_images_auto_import` Automatically\
-                    \ import/refresh the boot images every 60 minutes.\n* `boot_images_no_proxy`\
-                    \ Set no_proxy with the image repository address when MAAS is\
-                    \ behind (or set with) a proxy. By default, when MAAS is behind\
-                    \ (and set with) a proxy, it is used to download images from the\
-                    \ image repository. In some situations (e.g. when using a local\
-                    \ image repository) it doesn't make sense for MAAS to use the\
-                    \ proxy to download images because it can access them directly.\
-                    \ Setting this option allows MAAS to access the (local) image\
-                    \ repository directly by setting the no_proxy variable for the\
-                    \ MAAS env with the address of the image repository.\n* `commissioning_distro_series`\
+                    \ is accurate and complete.\n* `auto_vlan_creation` Automatically\
+                    \ create VLANs and Fabrics for interfaces. Enables the creation\
+                    \ of a default VLAN and Fabric for discovered network interfaces\
+                    \ when MAAS cannot connect it to an existing one. When disabled,\
+                    \ the interface is left disconnected in these cases.\n* `boot_images_auto_import`\
+                    \ Automatically import/refresh the boot images every 60 minutes.\n\
+                    * `boot_images_no_proxy` Set no_proxy with the image repository\
+                    \ address when MAAS is behind (or set with) a proxy. By default,\
+                    \ when MAAS is behind (and set with) a proxy, it is used to download\
+                    \ images from the image repository. In some situations (e.g. when\
+                    \ using a local image repository) it doesn't make sense for MAAS\
+                    \ to use the proxy to download images because it can access them\
+                    \ directly. Setting this option allows MAAS to access the (local)\
+                    \ image repository directly by setting the no_proxy variable for\
+                    \ the MAAS env with the address of the image repository.\n* `commissioning_distro_series`\
                     \ Default Ubuntu release used for commissioning.\n* `completed_intro`\
                     \ Marks if the initial intro has been completed.\n* `curtin_verbose`\
                     \ Run the fast-path installer with higher verbosity. This provides\
