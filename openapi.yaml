@@ -5744,7 +5744,8 @@ paths:
                   type: string
                 distro_series:
                   description: If present, this parameter specifies the OS release
-                    the machine will use.
+                    the machine will use. For example valid values to deploy Jammy
+                    Jellyfish are `ubuntu/jammy`, `jammy` and `ubuntu/22.04`, `22.04`.
                   type: string
                 enable_hw_sync:
                   description: If true, machine will be deployed with a small agent
