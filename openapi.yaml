@@ -14008,6 +14008,173 @@ paths:
       required: true
       schema:
         type: string
+  /reservedips/:
+    get:
+      description: List all IPs that have been reserved in MAAS.
+      operationId: ReservedIpsHandler_read
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+          description: A JSON object containing a list of reserved IPs.
+      summary: List all available Reserved IPs
+      tags:
+      - Reserved IPs
+    post:
+      description: Create a new Reserved IP.
+      operationId: ReservedIpsHandler_create
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              additionalProperties:
+                type: string
+              properties:
+                comment:
+                  description: A description of this reserved IP.
+                  type: string
+                ip:
+                  description: The IP to be reserved.
+                  type: string
+                mac_address:
+                  description: The MAC address that should be linked to the reserved
+                    IP.
+                  type: string
+                subnet:
+                  description: ID of the subnet associated with the IP to be reserved.
+                  type: integer
+                vlan:
+                  description: ID of the vlan associated with the IP to be reserved.
+                  type: integer
+              required:
+              - ip
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+          description: A JSON object containing information about the reserved IP.
+        '400':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: IP parameter is required, and cannot be null or reserved. MAC
+            address and VLAN need to be a unique together. IP needs to be within the
+            subnet range. Subnet and VLAN for the reserved IP needs to be defined
+            in MAAS.
+      summary: Create a Reserved IP
+      tags:
+      - Reserved IPs
+  /reservedips/{id}/:
+    delete:
+      description: Delete a reserved IP given its ID.
+      operationId: ReservedIpHandler_delete
+      parameters:
+      - description: The ID of the Reserved IP to be deleted.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: '204'
+        '404':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The requested reserved IP is not found.
+      summary: Delete a reserved IP
+      tags:
+      - Reserved IP
+    get:
+      description: Read a reserved IP given its ID.
+      operationId: ReservedIpHandler_read
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+          description: A JSON object containing a list of reserved IPs.
+        '404':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The requested reserved IP is not found.
+      summary: Read a Reserved IP
+      tags:
+      - Reserved IP
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    put:
+      description: Update a reserved IP given its ID.
+      operationId: ReservedIpHandler_update
+      parameters:
+      - description: The ID of the Reserved IP to be updated.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              additionalProperties:
+                type: string
+              properties:
+                comment:
+                  description: A description of this reserved IP.
+                  type: string
+                ip:
+                  description: The IP to be reserved.
+                  type: string
+                mac_address:
+                  description: The MAC address that should be linked to the reserved
+                    IP.
+                  type: string
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+          description: A JSON object containing the requested reserved IP.
+        '400':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: IP is updated to a value belonging to another subnet. IP is
+            updated to an IP already reserved.
+        '404':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The requested reserved IP range is not found.
+      summary: Update a reserved IP
+      tags:
+      - Reserved IP
   /resourcepool/{id}/:
     delete:
       description: Deletes a resource pool.
