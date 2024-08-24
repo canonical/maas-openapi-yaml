@@ -2171,6 +2171,12 @@ paths:
       description: List all DNS resource records.
       operationId: DNSResourceRecordsHandler_read
       parameters:
+      - description: Restricts the listing to entries for the fqdn.
+        in: query
+        name: fqdn
+        required: false
+        schema:
+          type: string
       - description: Restricts the listing to entries for the domain.
         in: query
         name: domain
@@ -2363,6 +2369,12 @@ paths:
       description: List all resources for the specified criteria.
       operationId: DNSResourcesHandler_read
       parameters:
+      - description: Restricts the listing to entries for the fqdn.
+        in: query
+        name: fqdn
+        required: false
+        schema:
+          type: string
       - description: Restricts the listing to entries for the domain.
         in: query
         name: domain
