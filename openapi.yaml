@@ -4089,13 +4089,15 @@ paths:
           \ when releasing.\n* `enable_http_proxy` Enable the use of an APT or YUM\
           \ and HTTP/HTTPS proxy. Provision nodes to use the built-in HTTP proxy (or\
           \ user specified proxy) for APT or YUM. MAAS also uses the proxy for downloading\
-          \ boot images.\n* `enable_third_party_drivers` Enable the installation of\
-          \ proprietary drivers (i.e. HPVSA).\n* `enlist_commissioning` Whether to\
-          \ run commissioning during enlistment. Enables running all built-in commissioning\
-          \ scripts during enlistment.\n* `force_v1_network_yaml` Always use the legacy\
-          \ v1 YAML (rather than Netplan format, also known as v2 YAML) when composing\
-          \ the network configuration for a machine.\n* `hardware_sync_interval` Hardware\
-          \ Sync Interval. The interval to send hardware info to MAAS fromhardware\
+          \ boot images.\n* `enable_kernel_crash_dump` Enable the kernel crash dump\
+          \ feature in deployed machines. Enable the collection of kernel crash dump\
+          \ when a machine is deployed.\n* `enable_third_party_drivers` Enable the\
+          \ installation of proprietary drivers (i.e. HPVSA).\n* `enlist_commissioning`\
+          \ Whether to run commissioning during enlistment. Enables running all built-in\
+          \ commissioning scripts during enlistment.\n* `force_v1_network_yaml` Always\
+          \ use the legacy v1 YAML (rather than Netplan format, also known as v2 YAML)\
+          \ when composing the network configuration for a machine.\n* `hardware_sync_interval`\
+          \ Hardware Sync Interval. The interval to send hardware info to MAAS fromhardware\
           \ sync enabled machines, in systemd time span syntax.\n* `http_proxy` Proxy\
           \ for APT or YUM and HTTP/HTTPS. This will be passed onto provisioned nodes\
           \ to use as a proxy for APT or YUM traffic. MAAS also uses the proxy for\
@@ -4286,10 +4288,13 @@ paths:
                     * `enable_http_proxy` Enable the use of an APT or YUM and HTTP/HTTPS\
                     \ proxy. Provision nodes to use the built-in HTTP proxy (or user\
                     \ specified proxy) for APT or YUM. MAAS also uses the proxy for\
-                    \ downloading boot images.\n* `enable_third_party_drivers` Enable\
-                    \ the installation of proprietary drivers (i.e. HPVSA).\n* `enlist_commissioning`\
-                    \ Whether to run commissioning during enlistment. Enables running\
-                    \ all built-in commissioning scripts during enlistment.\n* `force_v1_network_yaml`\
+                    \ downloading boot images.\n* `enable_kernel_crash_dump` Enable\
+                    \ the kernel crash dump feature in deployed machines. Enable the\
+                    \ collection of kernel crash dump when a machine is deployed.\n\
+                    * `enable_third_party_drivers` Enable the installation of proprietary\
+                    \ drivers (i.e. HPVSA).\n* `enlist_commissioning` Whether to run\
+                    \ commissioning during enlistment. Enables running all built-in\
+                    \ commissioning scripts during enlistment.\n* `force_v1_network_yaml`\
                     \ Always use the legacy v1 YAML (rather than Netplan format, also\
                     \ known as v2 YAML) when composing the network configuration for\
                     \ a machine.\n* `hardware_sync_interval` Hardware Sync Interval.\
@@ -5769,6 +5774,10 @@ paths:
                 enable_hw_sync:
                   description: If true, machine will be deployed with a small agent
                     periodically pushing hardware data to detect any change in devices.
+                  type: boolean
+                enable_kernel_crash_dump:
+                  description: If true, machine will be deployed with the kernel crash
+                    dump feature enabled and configured automatically.
                   type: boolean
                 ephemeral_deploy:
                   description: If true, machine will be deployed ephemerally even
