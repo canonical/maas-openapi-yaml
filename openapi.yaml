@@ -14074,9 +14074,6 @@ paths:
                 subnet:
                   description: ID of the subnet associated with the IP to be reserved.
                   type: integer
-                vlan:
-                  description: ID of the vlan associated with the IP to be reserved.
-                  type: integer
               required:
               - ip
               type: object
@@ -14169,13 +14166,6 @@ paths:
               properties:
                 comment:
                   description: A description of this reserved IP.
-                  type: string
-                ip:
-                  description: The IP to be reserved.
-                  type: string
-                mac_address:
-                  description: The MAC address that should be linked to the reserved
-                    IP.
                   type: string
               type: object
         required: true
