@@ -14095,6 +14095,12 @@ paths:
             address and VLAN need to be a unique together. IP needs to be within the
             subnet range. Subnet and VLAN for the reserved IP needs to be defined
             in MAAS.
+        '403':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The user does not have permission to create the reserved IP.
       summary: Create a Reserved IP
       tags:
       - Reserved IPs
@@ -14112,6 +14118,12 @@ paths:
       responses:
         '200':
           description: '204'
+        '403':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The user does not have permission to delete the reserved IP.
         '404':
           content:
             text/plain:
@@ -14184,6 +14196,12 @@ paths:
                 type: string
           description: IP is updated to a value belonging to another subnet. IP is
             updated to an IP already reserved.
+        '403':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The user does not have permission to update the reserved IP.
         '404':
           content:
             text/plain:
