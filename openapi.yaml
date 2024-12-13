@@ -1674,6 +1674,7 @@ paths:
       - Device
   /dhcp-snippets/:
     get:
+      deprecated: true
       description: List all available DHCP snippets.
       operationId: DHCPSnippetsHandler_read
       responses:
@@ -1683,11 +1684,12 @@ paths:
               schema:
                 additionalProperties: true
                 type: object
-          description: A JSON object containing a list of all available DHCP snippets.
+          description: A JSON object containing a list of reserved IPs.
       summary: List DHCP snippets
       tags:
-      - DHCP Snippets
+      - DHCP Snippets (deprecated)
     post:
+      deprecated: true
       description: Creates a DHCP snippet.
       operationId: DHCPSnippetsHandler_create
       requestBody:
@@ -1737,12 +1739,28 @@ paths:
               schema:
                 additionalProperties: true
                 type: object
-          description: A JSON object containing the new DHCP snippet object.
+          description: A JSON object containing information about the reserved IP.
+        '400':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: IP parameter is required, and cannot be null or reserved. MAC
+            address and VLAN need to be a unique together. IP needs to be within the
+            subnet range. Subnet and VLAN for the reserved IP needs to be defined
+            in MAAS.
+        '403':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The user does not have permission to create the reserved IP.
       summary: Create a DHCP snippet
       tags:
-      - DHCP Snippets
+      - DHCP Snippets (deprecated)
   /dhcp-snippets/{id}/:
     delete:
+      deprecated: true
       description: Delete a DHCP snippet with the given id.
       operationId: DHCPSnippetHandler_delete
       parameters:
@@ -1755,16 +1773,23 @@ paths:
       responses:
         '200':
           description: '204'
+        '403':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The user does not have permission to delete the reserved IP.
         '404':
           content:
             text/plain:
               schema:
                 type: string
-          description: The requested DHCP snippet is not found.
+          description: The requested reserved IP is not found.
       summary: Delete a DHCP snippet
       tags:
-      - DHCP Snippet
+      - DHCP Snippet (deprecated)
     get:
+      deprecated: true
       description: Read a DHCP snippet with the given id.
       operationId: DHCPSnippetHandler_read
       parameters:
@@ -1781,17 +1806,16 @@ paths:
               schema:
                 additionalProperties: true
                 type: object
-          description: A JSON object containing information about the requested DHCP
-            snippet.
+          description: A JSON object containing a list of reserved IPs.
         '404':
           content:
             text/plain:
               schema:
                 type: string
-          description: The requested DHCP snippet is not found.
+          description: The requested reserved IP is not found.
       summary: Read a DHCP snippet
       tags:
-      - DHCP Snippet
+      - DHCP Snippet (deprecated)
     parameters:
     - in: path
       name: id
@@ -1799,6 +1823,7 @@ paths:
       schema:
         type: string
     put:
+      deprecated: true
       description: Update a DHCP snippet with the given id.
       operationId: DHCPSnippetHandler_update
       parameters:
@@ -1849,17 +1874,29 @@ paths:
               schema:
                 additionalProperties: true
                 type: object
-          description: A JSON object containing information about the updated DHCP
-            snippet.
+          description: A JSON object containing the requested reserved IP.
+        '400':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: IP is updated to a value belonging to another subnet. IP is
+            updated to an IP already reserved.
+        '403':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The user does not have permission to update the reserved IP.
         '404':
           content:
             text/plain:
               schema:
                 type: string
-          description: The requested DHCP snippet is not found.
+          description: The requested reserved IP range is not found.
       summary: Update a DHCP snippet
       tags:
-      - DHCP Snippet
+      - DHCP Snippet (deprecated)
   /dhcp-snippets/{id}/op-revert:
     parameters:
     - in: path
@@ -1911,7 +1948,7 @@ paths:
           description: The requested DHCP snippet is not found.
       summary: Revert DHCP snippet to earlier version
       tags:
-      - DHCP Snippet
+      - DHCP Snippet (deprecated)
   /discovery/:
     get:
       description: Lists all the devices MAAS has discovered. Discoveries are listed
