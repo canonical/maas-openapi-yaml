@@ -4081,7 +4081,7 @@ paths:
           \ Enables the creation of a default VLAN and Fabric for discovered network\
           \ interfaces when MAAS cannot connect it to an existing one. When disabled,\
           \ the interface is left disconnected in these cases.\n* `boot_images_auto_import`\
-          \ Automatically import/refresh the boot images every 60 minutes.\n* `boot_images_no_proxy`\
+          \ Automatically import/refresh the boot images every 60.0 minutes.\n* `boot_images_no_proxy`\
           \ Set no_proxy with the image repository address when MAAS is behind (or\
           \ set with) a proxy. By default, when MAAS is behind (and set with) a proxy,\
           \ it is used to download images from the image repository. In some situations\
@@ -4273,7 +4273,7 @@ paths:
                     \ of a default VLAN and Fabric for discovered network interfaces\
                     \ when MAAS cannot connect it to an existing one. When disabled,\
                     \ the interface is left disconnected in these cases.\n* `boot_images_auto_import`\
-                    \ Automatically import/refresh the boot images every 60 minutes.\n\
+                    \ Automatically import/refresh the boot images every 60.0 minutes.\n\
                     * `boot_images_no_proxy` Set no_proxy with the image repository\
                     \ address when MAAS is behind (or set with) a proxy. By default,\
                     \ when MAAS is behind (and set with) a proxy, it is used to download\
