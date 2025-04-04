@@ -15214,6 +15214,10 @@ paths:
               additionalProperties:
                 type: string
               properties:
+                active_discovery:
+                  description: Configure MAAS to detect machines on the network by
+                    actively probing for devices.
+                  type: integer
                 allow_dns:
                   description: Configure MAAS DNS to allow DNS resolution from this
                     subnet. '0' = False, '1' = True.
