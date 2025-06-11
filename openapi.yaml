@@ -4693,6 +4693,10 @@ paths:
                 hostname:
                   description: A hostname. If not given, one will be generated.
                   type: string
+                is_dpu:
+                  description: Whether the machine is a DPU or not. If not provided,
+                    the machine is considered a non-DPU machine.
+                  type: boolean
                 mac_addresses:
                   description: One or more MAC addresses for the machine. To specify
                     more than one MAC address, the parameter must be specified twice.
