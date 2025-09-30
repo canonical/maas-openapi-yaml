@@ -12048,10 +12048,6 @@ paths:
                 disable_sources:
                   description: Disable deb-src lines.
                   type: boolean
-                disabled_components:
-                  description: The list of components to disable. Only applicable
-                    to the default Ubuntu repositories.
-                  type: string
                 disabled_pockets:
                   description: The list of pockets to disable.
                   type: string
