@@ -12358,7 +12358,7 @@ paths:
     get:
       description: 'Manage an individual Pod.
 
-        The ''Pod'' endpoint has been deprecated in favour of ''Virtual-machine-host''.'
+        The ''Pod'' endpoint has been deprecated in favour of ''vm-host''.'
       operationId: PodHandler_read
       responses:
         '404':
@@ -16323,7 +16323,7 @@ paths:
           description: A JSON object containing a list of VM host objects.
       summary: List VM hosts
       tags:
-      - Virtual machine hosts
+      - vm hosts
     post:
       description: Create or discover a new VM host.
       operationId: VmHostsHandler_create
@@ -16418,7 +16418,7 @@ paths:
           description: MAAS could not find or could not authenticate with the VM host.
       summary: Create a VM host
       tags:
-      - Virtual machine hosts
+      - vm hosts
   /vm-hosts/{id}/:
     delete:
       description: Deletes a VM host with the given ID.
@@ -16454,7 +16454,7 @@ paths:
           description: No VM host with that ID can be found.
       summary: Deletes a VM host
       tags:
-      - Virtual machine host
+      - vm host
     get:
       description: 'Manage an individual VM host.
 
@@ -16469,7 +16469,7 @@ paths:
           description: '''str'' object has no attribute ''has_model'''
       summary: VmHostHandler read
       tags:
-      - Virtual machine host
+      - vm host
     parameters:
     - in: path
       name: id
@@ -16548,7 +16548,7 @@ paths:
           description: 404 - The VM host's ID was not found.
       summary: Update a specific VM host
       tags:
-      - Virtual machine host
+      - vm host
   /vm-hosts/{id}/op-add_tag:
     parameters:
     - in: path
@@ -16602,7 +16602,7 @@ paths:
           description: No VM host with that ID can be found.
       summary: Add a tag to a VM host
       tags:
-      - Virtual machine host
+      - vm host
   /vm-hosts/{id}/op-compose:
     parameters:
     - in: path
@@ -16710,7 +16710,7 @@ paths:
           description: No VM host with that ID can be found.
       summary: Compose a virtual machine on the host.
       tags:
-      - Virtual machine host
+      - vm host
   /vm-hosts/{id}/op-parameters:
     get:
       description: 'This returns a VM host''s configuration parameters. For some types
@@ -16748,7 +16748,7 @@ paths:
           description: No VM host with that ID can be found.
       summary: Obtain VM host parameters
       tags:
-      - Virtual machine host
+      - vm host
     parameters:
     - in: path
       name: id
@@ -16788,7 +16788,7 @@ paths:
           description: No VM host with that ID can be found.
       summary: Refresh a VM host
       tags:
-      - Virtual machine host
+      - vm host
   /vm-hosts/{id}/op-remove_tag:
     parameters:
     - in: path
@@ -16842,7 +16842,7 @@ paths:
           description: No VM host with that ID can be found.
       summary: Remove a tag from a VM host
       tags:
-      - Virtual machine host
+      - vm host
   /zones/:
     get:
       description: 'Get a listing of all zones. Note that there is always at least
