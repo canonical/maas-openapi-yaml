@@ -4077,11 +4077,14 @@ paths:
           \ configuration items:\n* `active_discovery_interval` Active subnet mapping\
           \ interval. When enabled, each rack will scan subnets enabled for active\
           \ mapping. This helps ensure discovery information is accurate and complete.\n\
-          * `auto_vlan_creation` Automatically create VLANs and Fabrics for interfaces.\
-          \ Enables the creation of a default VLAN and Fabric for discovered network\
-          \ interfaces when MAAS cannot connect it to an existing one. When disabled,\
-          \ the interface is left disconnected in these cases.\n* `boot_images_auto_import`\
-          \ Automatically import/refresh the boot images every 60.0 minutes.\n* `boot_images_no_proxy`\
+          * `allow_only_trusted_transfers` Allow only trusted zone transfers. A boolean\
+          \ value to allow only zone transfers from trusted sources. If set to false,\
+          \ zone transfers from all sources will be allowed.\n* `auto_vlan_creation`\
+          \ Automatically create VLANs and Fabrics for interfaces. Enables the creation\
+          \ of a default VLAN and Fabric for discovered network interfaces when MAAS\
+          \ cannot connect it to an existing one. When disabled, the interface is\
+          \ left disconnected in these cases.\n* `boot_images_auto_import` Automatically\
+          \ import/refresh the boot images every 60.0 minutes.\n* `boot_images_no_proxy`\
           \ Set no_proxy with the image repository address when MAAS is behind (or\
           \ set with) a proxy. By default, when MAAS is behind (and set with) a proxy,\
           \ it is used to download images from the image repository. In some situations\
@@ -4268,22 +4271,26 @@ paths:
                     \ configuration items:\n* `active_discovery_interval` Active subnet\
                     \ mapping interval. When enabled, each rack will scan subnets\
                     \ enabled for active mapping. This helps ensure discovery information\
-                    \ is accurate and complete.\n* `auto_vlan_creation` Automatically\
-                    \ create VLANs and Fabrics for interfaces. Enables the creation\
-                    \ of a default VLAN and Fabric for discovered network interfaces\
-                    \ when MAAS cannot connect it to an existing one. When disabled,\
-                    \ the interface is left disconnected in these cases.\n* `boot_images_auto_import`\
-                    \ Automatically import/refresh the boot images every 60.0 minutes.\n\
-                    * `boot_images_no_proxy` Set no_proxy with the image repository\
-                    \ address when MAAS is behind (or set with) a proxy. By default,\
-                    \ when MAAS is behind (and set with) a proxy, it is used to download\
-                    \ images from the image repository. In some situations (e.g. when\
-                    \ using a local image repository) it doesn't make sense for MAAS\
-                    \ to use the proxy to download images because it can access them\
-                    \ directly. Setting this option allows MAAS to access the (local)\
-                    \ image repository directly by setting the no_proxy variable for\
-                    \ the MAAS env with the address of the image repository.\n* `commissioning_distro_series`\
-                    \ Default Ubuntu release used for commissioning.\n* `completed_intro`\
+                    \ is accurate and complete.\n* `allow_only_trusted_transfers`\
+                    \ Allow only trusted zone transfers. A boolean value to allow\
+                    \ only zone transfers from trusted sources. If set to false, zone\
+                    \ transfers from all sources will be allowed.\n* `auto_vlan_creation`\
+                    \ Automatically create VLANs and Fabrics for interfaces. Enables\
+                    \ the creation of a default VLAN and Fabric for discovered network\
+                    \ interfaces when MAAS cannot connect it to an existing one. When\
+                    \ disabled, the interface is left disconnected in these cases.\n\
+                    * `boot_images_auto_import` Automatically import/refresh the boot\
+                    \ images every 60.0 minutes.\n* `boot_images_no_proxy` Set no_proxy\
+                    \ with the image repository address when MAAS is behind (or set\
+                    \ with) a proxy. By default, when MAAS is behind (and set with)\
+                    \ a proxy, it is used to download images from the image repository.\
+                    \ In some situations (e.g. when using a local image repository)\
+                    \ it doesn't make sense for MAAS to use the proxy to download\
+                    \ images because it can access them directly. Setting this option\
+                    \ allows MAAS to access the (local) image repository directly\
+                    \ by setting the no_proxy variable for the MAAS env with the address\
+                    \ of the image repository.\n* `commissioning_distro_series` Default\
+                    \ Ubuntu release used for commissioning.\n* `completed_intro`\
                     \ Marks if the initial intro has been completed.\n* `curtin_verbose`\
                     \ Run the fast-path installer with higher verbosity. This provides\
                     \ more detail in the installation logs.\n* `default_boot_interface_link_type`\
