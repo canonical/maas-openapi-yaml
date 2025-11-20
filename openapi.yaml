@@ -389,7 +389,8 @@ paths:
       tags:
       - Boot resources
     post:
-      description: Uploads a new boot resource.
+      description: Creates a new boot resource. The file upload must be done in chunk,
+        see Boot resource file upload.
       operationId: BootResourcesHandler_create
       requestBody:
         content:
@@ -404,10 +405,6 @@ paths:
                 base_image:
                   description: The Base OS image a custom image is built on top of.
                     Only required for custom image.
-                  type: string
-                content:
-                  description: 'Image content. Note: this is not a normal parameter,
-                    but an `application/octet-stream` file upload.'
                   type: string
                 filetype:
                   description: 'Filetype for uploaded content. (Default: `tgz`. Supported:
@@ -441,7 +438,7 @@ paths:
                 additionalProperties: true
                 type: object
           description: A JSON object containing information about the uploaded resource.
-      summary: Upload a new boot resource
+      summary: Create a new boot resource
       tags:
       - Boot resources
   /boot-resources/op-import:
@@ -542,6 +539,52 @@ paths:
       required: true
       schema:
         type: string
+  /boot-resources/{resource_id}/upload/{id}/:
+    parameters:
+    - in: path
+      name: resource_id
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    put:
+      description: Uploads a chunk of boot resource file
+      operationId: BootResourceFileUploadHandler_update
+      parameters:
+      - description: The boot resource id.
+        in: path
+        name: resource_id
+        required: true
+        schema:
+          type: integer
+      - description: The boot resource file id.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: '200'
+        '400':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Error while uploading the file.
+        '403':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The user tried to upload to a boot resource of wrong type.
+      summary: Upload chunk of boot resource file.
+      tags:
+      - Boot resource file upload
   /boot-sources/:
     get:
       description: List all boot sources.
@@ -645,11 +688,8 @@ paths:
               additionalProperties:
                 type: string
               properties:
-                arches:
-                  description: The architecture list for which to import resources.
-                  type: string
-                labels:
-                  description: The label lists for which to import resources.
+                arch:
+                  description: The architecture for which to import resources.
                   type: string
                 os:
                   description: The OS (e.g. ubuntu, centos) for which to import resources.
@@ -657,9 +697,10 @@ paths:
                 release:
                   description: The release for which to import resources.
                   type: string
-                subarches:
-                  description: The subarchitecture list for which to import resources.
-                  type: string
+              required:
+              - os
+              - release
+              - arch
               type: object
         required: true
       responses:
@@ -753,64 +794,6 @@ paths:
       required: true
       schema:
         type: string
-    put:
-      description: Update a boot source selection with the given id.
-      operationId: BootSourceSelectionHandler_update
-      parameters:
-      - description: A boot-source id.
-        in: path
-        name: boot_source_id
-        required: true
-        schema:
-          type: string
-      - description: A boot-source selection id.
-        in: path
-        name: id
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              additionalProperties:
-                type: string
-              properties:
-                arches:
-                  description: The list of architectures for which to import resources.
-                  type: string
-                labels:
-                  description: The list of labels for which to import resources.
-                  type: string
-                os:
-                  description: The OS (e.g. ubuntu, centos) for which to import resources.
-                  type: string
-                release:
-                  description: The release for which to import resources.
-                  type: string
-                subarches:
-                  description: The list of sub-architectures for which to import resources.
-                  type: string
-              type: object
-        required: true
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                additionalProperties: true
-                type: object
-          description: A JSON object containing the requested boot-source selection
-            object.
-        '404':
-          content:
-            text/plain:
-              schema:
-                type: string
-          description: The requested boot-source or boot-source selection is not found.
-      summary: Update a boot-source selection
-      tags:
-      - Boot source selection
   /boot-sources/{id}/:
     delete:
       description: Delete a boot source with the given id.
