@@ -688,8 +688,11 @@ paths:
               additionalProperties:
                 type: string
               properties:
-                arch:
-                  description: The architecture for which to import resources.
+                arches:
+                  description: The architecture list for which to import resources.
+                  type: string
+                labels:
+                  description: The label lists for which to import resources.
                   type: string
                 os:
                   description: The OS (e.g. ubuntu, centos) for which to import resources.
@@ -697,10 +700,9 @@ paths:
                 release:
                   description: The release for which to import resources.
                   type: string
-              required:
-              - os
-              - release
-              - arch
+                subarches:
+                  description: The subarchitecture list for which to import resources.
+                  type: string
               type: object
         required: true
       responses:
@@ -794,6 +796,64 @@ paths:
       required: true
       schema:
         type: string
+    put:
+      description: Update a boot source selection with the given id.
+      operationId: BootSourceSelectionHandler_update
+      parameters:
+      - description: A boot-source id.
+        in: path
+        name: boot_source_id
+        required: true
+        schema:
+          type: string
+      - description: A boot-source selection id.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              additionalProperties:
+                type: string
+              properties:
+                arches:
+                  description: The list of architectures for which to import resources.
+                  type: string
+                labels:
+                  description: The list of labels for which to import resources.
+                  type: string
+                os:
+                  description: The OS (e.g. ubuntu, centos) for which to import resources.
+                  type: string
+                release:
+                  description: The release for which to import resources.
+                  type: string
+                subarches:
+                  description: The list of sub-architectures for which to import resources.
+                  type: string
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+          description: A JSON object containing the requested boot-source selection
+            object.
+        '404':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The requested boot-source or boot-source selection is not found.
+      summary: Update a boot-source selection
+      tags:
+      - Boot source selection
   /boot-sources/{id}/:
     delete:
       description: Delete a boot source with the given id.
