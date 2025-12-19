@@ -14570,7 +14570,8 @@ paths:
                   type: string
                 type:
                   description: 'The script_type defines when the script should be
-                    used: `commissioning` or `testing` or `release`. Defaults to `testing`.'
+                    used: `commissioning` or `testing` or `release` or `deployment`.
+                    Defaults to `testing`.'
                   type: string
               required:
               - name
