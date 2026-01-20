@@ -9813,7 +9813,11 @@ paths:
                   description: Name of the interface.
                   type: string
                 parent:
-                  description: Parent interface id for this bridge interface.
+                  description: Deprecated, use parents instead. Parent interface id
+                    for this bridge interface.
+                  type: integer
+                parents:
+                  description: Parent interface ids that make this bridge.
                   type: integer
                 tags:
                   description: Tags for the interface.
