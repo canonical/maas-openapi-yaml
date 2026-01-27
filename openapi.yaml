@@ -4250,13 +4250,15 @@ paths:
           * `promtail_enabled` Enable streaming logs to Promtail. Whether to stream\
           \ logs to Promtail.\n* `promtail_port` TCP port of the Promtail Push API.\
           \ Defines the TCP port of the Promtail push API where MAAS will stream logs\
-          \ to.\n* `release_notifications` Enable or disable notifications for new\
-          \ MAAS releases.\n* `remote_syslog` Remote syslog server to forward machine\
-          \ logs. A remote syslog server that MAAS will set on enlisting, commissioning,\
-          \ testing, and deploying machines to send all log messages. Clearing this\
-          \ value will restore the default behaviour of forwarding syslog to MAAS.\n\
-          * `session_length` Session timeout (seconds). Configure timeout of session\
-          \ (seconds). Minimum 10s, maximum 2 weeks (1209600s).\n* `subnet_ip_exhaustion_threshold_count`\
+          \ to.\n* `refresh_token_duration` Refresh token duration (seconds). Configure\
+          \ duration of refresh token (seconds). Minimum 10 minutes, maximum 60 days\
+          \ (5184000s).\n* `release_notifications` Enable or disable notifications\
+          \ for new MAAS releases.\n* `remote_syslog` Remote syslog server to forward\
+          \ machine logs. A remote syslog server that MAAS will set on enlisting,\
+          \ commissioning, testing, and deploying machines to send all log messages.\
+          \ Clearing this value will restore the default behaviour of forwarding syslog\
+          \ to MAAS.\n* `session_length` Session timeout (seconds). Configure timeout\
+          \ of session (seconds). Minimum 10s, maximum 2 weeks (1209600s).\n* `subnet_ip_exhaustion_threshold_count`\
           \ If the number of free IP addresses on a subnet becomes less than or equal\
           \ to this threshold, an IP exhaustion warning will appear for that subnet.\n\
           * `theme` MAAS theme.\n* `tls_cert_expiration_notification_enabled` Notify\
@@ -4465,14 +4467,16 @@ paths:
                     \ Enable streaming logs to Promtail. Whether to stream logs to\
                     \ Promtail.\n* `promtail_port` TCP port of the Promtail Push API.\
                     \ Defines the TCP port of the Promtail push API where MAAS will\
-                    \ stream logs to.\n* `release_notifications` Enable or disable\
-                    \ notifications for new MAAS releases.\n* `remote_syslog` Remote\
-                    \ syslog server to forward machine logs. A remote syslog server\
-                    \ that MAAS will set on enlisting, commissioning, testing, and\
-                    \ deploying machines to send all log messages. Clearing this value\
-                    \ will restore the default behaviour of forwarding syslog to MAAS.\n\
-                    * `session_length` Session timeout (seconds). Configure timeout\
-                    \ of session (seconds). Minimum 10s, maximum 2 weeks (1209600s).\n\
+                    \ stream logs to.\n* `refresh_token_duration` Refresh token duration\
+                    \ (seconds). Configure duration of refresh token (seconds). Minimum\
+                    \ 10 minutes, maximum 60 days (5184000s).\n* `release_notifications`\
+                    \ Enable or disable notifications for new MAAS releases.\n* `remote_syslog`\
+                    \ Remote syslog server to forward machine logs. A remote syslog\
+                    \ server that MAAS will set on enlisting, commissioning, testing,\
+                    \ and deploying machines to send all log messages. Clearing this\
+                    \ value will restore the default behaviour of forwarding syslog\
+                    \ to MAAS.\n* `session_length` Session timeout (seconds). Configure\
+                    \ timeout of session (seconds). Minimum 10s, maximum 2 weeks (1209600s).\n\
                     * `subnet_ip_exhaustion_threshold_count` If the number of free\
                     \ IP addresses on a subnet becomes less than or equal to this\
                     \ threshold, an IP exhaustion warning will appear for that subnet.\n\
