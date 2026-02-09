@@ -1207,7 +1207,7 @@ paths:
         required: false
         schema:
           type: string
-      - description: Only nodes that don't belong a pod of the specified type will
+      - description: Only nodes that don't belong to a pod of the specified type will
           be returned.
         in: query
         name: not_pod_type
@@ -1222,6 +1222,159 @@ paths:
           - `commissioning_driver`: The device uses this driver during commissioning.'
         in: query
         name: devices
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with the specified architecture will be returned.
+        in: query
+        name: arch
+        required: false
+        schema:
+          type: string
+      - description: Only nodes without the specified architecture will be returned.
+        in: query
+        name: not_arch
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with CPUs running at the specified speed (in MHz)
+          will be returned.
+        in: query
+        name: cpu_speed
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with the specified deployment target will be returned.
+        in: query
+        name: deployment_target
+        required: false
+        schema:
+          type: string
+      - description: Only nodes without the specified deployment target will be returned.
+        in: query
+        name: not_deployment_target
+        required: false
+        schema:
+          type: string
+      - description: Attached to fabric with specified classes.
+        in: query
+        name: fabric_classes
+        required: false
+        schema:
+          type: string
+      - description: Not attached to fabric with specified classes.
+        in: query
+        name: not_fabric_classes
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with interfaces matching the specified constraints
+          will be returned.
+        in: query
+        name: interfaces
+        required: false
+        schema:
+          type: string
+      - description: Hostnames to ignore.
+        in: query
+        name: not_hostname
+        required: false
+        schema:
+          type: string
+      - description: System IDs to ignore.
+        in: query
+        name: not_id
+        required: false
+        schema:
+          type: string
+      - description: Domain names to ignore.
+        in: query
+        name: not_domain
+        required: false
+        schema:
+          type: string
+      - description: Excludes nodes with events matching the agent name.
+        in: query
+        name: not_agent_name
+        required: false
+        schema:
+          type: string
+      - description: Only nodes not in the specified resource pools will be returned.
+        in: query
+        name: not_in_pool
+        required: false
+        schema:
+          type: string
+      - description: Not in zone.
+        in: query
+        name: not_in_zone
+        required: false
+        schema:
+          type: string
+      - description: Only nodes not owned by the specified users will be returned.
+        in: query
+        name: not_owner
+        required: false
+        schema:
+          type: string
+      - description: Only nodes not in the specified power states will be returned.
+        in: query
+        name: not_power_state
+        required: false
+        schema:
+          type: string
+      - description: Exclude nodes with the specified simplified status.
+        in: query
+        name: not_simple_status
+        required: false
+        schema:
+          type: string
+      - description: Exclude nodes with the specified status.
+        in: query
+        name: not_status
+        required: false
+        schema:
+          type: string
+      - description: Not having tags.
+        in: query
+        name: not_tags
+        required: false
+        schema:
+          type: string
+      - description: Only nodes owned by the specified users will be returned.
+        in: query
+        name: owner
+        required: false
+        schema:
+          type: string
+      - description: Only nodes in the specified power states will be returned.
+        in: query
+        name: power_state
+        required: false
+        schema:
+          type: string
+      - description: Only includes nodes with the specified simplified status.
+        in: query
+        name: simple_status
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with storage matching the specified constraints will
+          be returned.
+        in: query
+        name: storage
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with the specified system IDs will be returned.
+        in: query
+        name: system_id
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with the specified tags will be returned.
+        in: query
+        name: tags
         required: false
         schema:
           type: string
@@ -4661,7 +4814,7 @@ paths:
         required: false
         schema:
           type: string
-      - description: Only nodes that don't belong a pod of the specified type will
+      - description: Only nodes that don't belong to a pod of the specified type will
           be returned.
         in: query
         name: not_pod_type
@@ -4676,6 +4829,159 @@ paths:
           - `commissioning_driver`: The device uses this driver during commissioning.'
         in: query
         name: devices
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with the specified architecture will be returned.
+        in: query
+        name: arch
+        required: false
+        schema:
+          type: string
+      - description: Only nodes without the specified architecture will be returned.
+        in: query
+        name: not_arch
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with CPUs running at the specified speed (in MHz)
+          will be returned.
+        in: query
+        name: cpu_speed
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with the specified deployment target will be returned.
+        in: query
+        name: deployment_target
+        required: false
+        schema:
+          type: string
+      - description: Only nodes without the specified deployment target will be returned.
+        in: query
+        name: not_deployment_target
+        required: false
+        schema:
+          type: string
+      - description: Attached to fabric with specified classes.
+        in: query
+        name: fabric_classes
+        required: false
+        schema:
+          type: string
+      - description: Not attached to fabric with specified classes.
+        in: query
+        name: not_fabric_classes
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with interfaces matching the specified constraints
+          will be returned.
+        in: query
+        name: interfaces
+        required: false
+        schema:
+          type: string
+      - description: Hostnames to ignore.
+        in: query
+        name: not_hostname
+        required: false
+        schema:
+          type: string
+      - description: System IDs to ignore.
+        in: query
+        name: not_id
+        required: false
+        schema:
+          type: string
+      - description: Domain names to ignore.
+        in: query
+        name: not_domain
+        required: false
+        schema:
+          type: string
+      - description: Excludes nodes with events matching the agent name.
+        in: query
+        name: not_agent_name
+        required: false
+        schema:
+          type: string
+      - description: Only nodes not in the specified resource pools will be returned.
+        in: query
+        name: not_in_pool
+        required: false
+        schema:
+          type: string
+      - description: Not in zone.
+        in: query
+        name: not_in_zone
+        required: false
+        schema:
+          type: string
+      - description: Only nodes not owned by the specified users will be returned.
+        in: query
+        name: not_owner
+        required: false
+        schema:
+          type: string
+      - description: Only nodes not in the specified power states will be returned.
+        in: query
+        name: not_power_state
+        required: false
+        schema:
+          type: string
+      - description: Exclude nodes with the specified simplified status.
+        in: query
+        name: not_simple_status
+        required: false
+        schema:
+          type: string
+      - description: Exclude nodes with the specified status.
+        in: query
+        name: not_status
+        required: false
+        schema:
+          type: string
+      - description: Not having tags.
+        in: query
+        name: not_tags
+        required: false
+        schema:
+          type: string
+      - description: Only nodes owned by the specified users will be returned.
+        in: query
+        name: owner
+        required: false
+        schema:
+          type: string
+      - description: Only nodes in the specified power states will be returned.
+        in: query
+        name: power_state
+        required: false
+        schema:
+          type: string
+      - description: Only includes nodes with the specified simplified status.
+        in: query
+        name: simple_status
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with storage matching the specified constraints will
+          be returned.
+        in: query
+        name: storage
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with the specified system IDs will be returned.
+        in: query
+        name: system_id
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with the specified tags will be returned.
+        in: query
+        name: tags
         required: false
         schema:
           type: string
@@ -7465,7 +7771,7 @@ paths:
         required: false
         schema:
           type: string
-      - description: Only nodes that don't belong a pod of the specified type will
+      - description: Only nodes that don't belong to a pod of the specified type will
           be returned.
         in: query
         name: not_pod_type
@@ -7480,6 +7786,159 @@ paths:
           - `commissioning_driver`: The device uses this driver during commissioning.'
         in: query
         name: devices
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with the specified architecture will be returned.
+        in: query
+        name: arch
+        required: false
+        schema:
+          type: string
+      - description: Only nodes without the specified architecture will be returned.
+        in: query
+        name: not_arch
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with CPUs running at the specified speed (in MHz)
+          will be returned.
+        in: query
+        name: cpu_speed
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with the specified deployment target will be returned.
+        in: query
+        name: deployment_target
+        required: false
+        schema:
+          type: string
+      - description: Only nodes without the specified deployment target will be returned.
+        in: query
+        name: not_deployment_target
+        required: false
+        schema:
+          type: string
+      - description: Attached to fabric with specified classes.
+        in: query
+        name: fabric_classes
+        required: false
+        schema:
+          type: string
+      - description: Not attached to fabric with specified classes.
+        in: query
+        name: not_fabric_classes
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with interfaces matching the specified constraints
+          will be returned.
+        in: query
+        name: interfaces
+        required: false
+        schema:
+          type: string
+      - description: Hostnames to ignore.
+        in: query
+        name: not_hostname
+        required: false
+        schema:
+          type: string
+      - description: System IDs to ignore.
+        in: query
+        name: not_id
+        required: false
+        schema:
+          type: string
+      - description: Domain names to ignore.
+        in: query
+        name: not_domain
+        required: false
+        schema:
+          type: string
+      - description: Excludes nodes with events matching the agent name.
+        in: query
+        name: not_agent_name
+        required: false
+        schema:
+          type: string
+      - description: Only nodes not in the specified resource pools will be returned.
+        in: query
+        name: not_in_pool
+        required: false
+        schema:
+          type: string
+      - description: Not in zone.
+        in: query
+        name: not_in_zone
+        required: false
+        schema:
+          type: string
+      - description: Only nodes not owned by the specified users will be returned.
+        in: query
+        name: not_owner
+        required: false
+        schema:
+          type: string
+      - description: Only nodes not in the specified power states will be returned.
+        in: query
+        name: not_power_state
+        required: false
+        schema:
+          type: string
+      - description: Exclude nodes with the specified simplified status.
+        in: query
+        name: not_simple_status
+        required: false
+        schema:
+          type: string
+      - description: Exclude nodes with the specified status.
+        in: query
+        name: not_status
+        required: false
+        schema:
+          type: string
+      - description: Not having tags.
+        in: query
+        name: not_tags
+        required: false
+        schema:
+          type: string
+      - description: Only nodes owned by the specified users will be returned.
+        in: query
+        name: owner
+        required: false
+        schema:
+          type: string
+      - description: Only nodes in the specified power states will be returned.
+        in: query
+        name: power_state
+        required: false
+        schema:
+          type: string
+      - description: Only includes nodes with the specified simplified status.
+        in: query
+        name: simple_status
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with storage matching the specified constraints will
+          be returned.
+        in: query
+        name: storage
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with the specified system IDs will be returned.
+        in: query
+        name: system_id
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with the specified tags will be returned.
+        in: query
+        name: tags
         required: false
         schema:
           type: string
@@ -12936,7 +13395,7 @@ paths:
         required: false
         schema:
           type: string
-      - description: Only nodes that don't belong a pod of the specified type will
+      - description: Only nodes that don't belong to a pod of the specified type will
           be returned.
         in: query
         name: not_pod_type
@@ -12951,6 +13410,159 @@ paths:
           - `commissioning_driver`: The device uses this driver during commissioning.'
         in: query
         name: devices
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with the specified architecture will be returned.
+        in: query
+        name: arch
+        required: false
+        schema:
+          type: string
+      - description: Only nodes without the specified architecture will be returned.
+        in: query
+        name: not_arch
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with CPUs running at the specified speed (in MHz)
+          will be returned.
+        in: query
+        name: cpu_speed
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with the specified deployment target will be returned.
+        in: query
+        name: deployment_target
+        required: false
+        schema:
+          type: string
+      - description: Only nodes without the specified deployment target will be returned.
+        in: query
+        name: not_deployment_target
+        required: false
+        schema:
+          type: string
+      - description: Attached to fabric with specified classes.
+        in: query
+        name: fabric_classes
+        required: false
+        schema:
+          type: string
+      - description: Not attached to fabric with specified classes.
+        in: query
+        name: not_fabric_classes
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with interfaces matching the specified constraints
+          will be returned.
+        in: query
+        name: interfaces
+        required: false
+        schema:
+          type: string
+      - description: Hostnames to ignore.
+        in: query
+        name: not_hostname
+        required: false
+        schema:
+          type: string
+      - description: System IDs to ignore.
+        in: query
+        name: not_id
+        required: false
+        schema:
+          type: string
+      - description: Domain names to ignore.
+        in: query
+        name: not_domain
+        required: false
+        schema:
+          type: string
+      - description: Excludes nodes with events matching the agent name.
+        in: query
+        name: not_agent_name
+        required: false
+        schema:
+          type: string
+      - description: Only nodes not in the specified resource pools will be returned.
+        in: query
+        name: not_in_pool
+        required: false
+        schema:
+          type: string
+      - description: Not in zone.
+        in: query
+        name: not_in_zone
+        required: false
+        schema:
+          type: string
+      - description: Only nodes not owned by the specified users will be returned.
+        in: query
+        name: not_owner
+        required: false
+        schema:
+          type: string
+      - description: Only nodes not in the specified power states will be returned.
+        in: query
+        name: not_power_state
+        required: false
+        schema:
+          type: string
+      - description: Exclude nodes with the specified simplified status.
+        in: query
+        name: not_simple_status
+        required: false
+        schema:
+          type: string
+      - description: Exclude nodes with the specified status.
+        in: query
+        name: not_status
+        required: false
+        schema:
+          type: string
+      - description: Not having tags.
+        in: query
+        name: not_tags
+        required: false
+        schema:
+          type: string
+      - description: Only nodes owned by the specified users will be returned.
+        in: query
+        name: owner
+        required: false
+        schema:
+          type: string
+      - description: Only nodes in the specified power states will be returned.
+        in: query
+        name: power_state
+        required: false
+        schema:
+          type: string
+      - description: Only includes nodes with the specified simplified status.
+        in: query
+        name: simple_status
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with storage matching the specified constraints will
+          be returned.
+        in: query
+        name: storage
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with the specified system IDs will be returned.
+        in: query
+        name: system_id
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with the specified tags will be returned.
+        in: query
+        name: tags
         required: false
         schema:
           type: string
@@ -13807,7 +14419,7 @@ paths:
         required: false
         schema:
           type: string
-      - description: Only nodes that don't belong a pod of the specified type will
+      - description: Only nodes that don't belong to a pod of the specified type will
           be returned.
         in: query
         name: not_pod_type
@@ -13822,6 +14434,159 @@ paths:
           - `commissioning_driver`: The device uses this driver during commissioning.'
         in: query
         name: devices
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with the specified architecture will be returned.
+        in: query
+        name: arch
+        required: false
+        schema:
+          type: string
+      - description: Only nodes without the specified architecture will be returned.
+        in: query
+        name: not_arch
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with CPUs running at the specified speed (in MHz)
+          will be returned.
+        in: query
+        name: cpu_speed
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with the specified deployment target will be returned.
+        in: query
+        name: deployment_target
+        required: false
+        schema:
+          type: string
+      - description: Only nodes without the specified deployment target will be returned.
+        in: query
+        name: not_deployment_target
+        required: false
+        schema:
+          type: string
+      - description: Attached to fabric with specified classes.
+        in: query
+        name: fabric_classes
+        required: false
+        schema:
+          type: string
+      - description: Not attached to fabric with specified classes.
+        in: query
+        name: not_fabric_classes
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with interfaces matching the specified constraints
+          will be returned.
+        in: query
+        name: interfaces
+        required: false
+        schema:
+          type: string
+      - description: Hostnames to ignore.
+        in: query
+        name: not_hostname
+        required: false
+        schema:
+          type: string
+      - description: System IDs to ignore.
+        in: query
+        name: not_id
+        required: false
+        schema:
+          type: string
+      - description: Domain names to ignore.
+        in: query
+        name: not_domain
+        required: false
+        schema:
+          type: string
+      - description: Excludes nodes with events matching the agent name.
+        in: query
+        name: not_agent_name
+        required: false
+        schema:
+          type: string
+      - description: Only nodes not in the specified resource pools will be returned.
+        in: query
+        name: not_in_pool
+        required: false
+        schema:
+          type: string
+      - description: Not in zone.
+        in: query
+        name: not_in_zone
+        required: false
+        schema:
+          type: string
+      - description: Only nodes not owned by the specified users will be returned.
+        in: query
+        name: not_owner
+        required: false
+        schema:
+          type: string
+      - description: Only nodes not in the specified power states will be returned.
+        in: query
+        name: not_power_state
+        required: false
+        schema:
+          type: string
+      - description: Exclude nodes with the specified simplified status.
+        in: query
+        name: not_simple_status
+        required: false
+        schema:
+          type: string
+      - description: Exclude nodes with the specified status.
+        in: query
+        name: not_status
+        required: false
+        schema:
+          type: string
+      - description: Not having tags.
+        in: query
+        name: not_tags
+        required: false
+        schema:
+          type: string
+      - description: Only nodes owned by the specified users will be returned.
+        in: query
+        name: owner
+        required: false
+        schema:
+          type: string
+      - description: Only nodes in the specified power states will be returned.
+        in: query
+        name: power_state
+        required: false
+        schema:
+          type: string
+      - description: Only includes nodes with the specified simplified status.
+        in: query
+        name: simple_status
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with storage matching the specified constraints will
+          be returned.
+        in: query
+        name: storage
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with the specified system IDs will be returned.
+        in: query
+        name: system_id
+        required: false
+        schema:
+          type: string
+      - description: Only nodes with the specified tags will be returned.
+        in: query
+        name: tags
         required: false
         schema:
           type: string
