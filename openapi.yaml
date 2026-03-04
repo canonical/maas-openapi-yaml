@@ -3730,6 +3730,135 @@ paths:
       required: true
       schema:
         type: string
+  /groups/:
+    get:
+      description: Lists all user groups.
+      operationId: UserGroupsHandler_read
+      responses:
+        '200':
+          description: '200'
+      summary: UserGroupsHandler read
+      tags:
+      - UserGroups
+    post:
+      description: Creates a new user group.
+      operationId: UserGroupsHandler_create
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              additionalProperties:
+                type: string
+              properties:
+                description:
+                  description: The group description.
+                  type: string
+                name:
+                  description: The group name.
+                  type: string
+              required:
+              - name
+              type: object
+        required: true
+      responses:
+        '200':
+          description: '200'
+        '400':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Name is required.
+      summary: UserGroupsHandler create
+      tags:
+      - UserGroups
+  /groups/{id}/:
+    delete:
+      description: Deletes a user group.
+      operationId: UserGroupHandler_delete
+      parameters:
+      - description: A group ID.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: object
+      responses:
+        '200':
+          description: '204'
+      summary: UserGroupHandler delete
+      tags:
+      - UserGroup
+    get:
+      description: Returns a user group.
+      operationId: UserGroupHandler_read
+      parameters:
+      - description: A group ID.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: object
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+          description: A JSON object containing group information.
+        '404':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The group is not found.
+      summary: UserGroupHandler read
+      tags:
+      - UserGroup
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    put:
+      description: Updates a user group.
+      operationId: UserGroupHandler_update
+      parameters:
+      - description: A group ID.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: object
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              additionalProperties:
+                type: string
+              properties:
+                description:
+                  description: The group description.
+                  type: string
+                name:
+                  description: The group name.
+                  type: string
+              type: object
+        required: true
+      responses:
+        '200':
+          description: '200'
+        '404':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The group is not found.
+      summary: UserGroupHandler update
+      tags:
+      - UserGroup
   /installation-results/:
     get:
       description: Read the commissioning results per node visible to the user, optionally
