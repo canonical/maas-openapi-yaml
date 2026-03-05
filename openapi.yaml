@@ -3859,6 +3859,144 @@ paths:
       summary: UserGroupHandler update
       tags:
       - UserGroup
+  /groups/{id}/op-add_member:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    post:
+      description: Adds a user to a user group.
+      operationId: UserGroupHandler_add_member
+      parameters:
+      - description: A group ID.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: object
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              additionalProperties:
+                type: string
+              properties:
+                username:
+                  description: The username to add.
+                  type: string
+              required:
+              - username
+              type: object
+        required: true
+      responses:
+        '200':
+          description: '200'
+        '400':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: username is required.
+        '404':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The group or user is not found.
+        '409':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The user is already a member of the group.
+      summary: UserGroupHandler add_member
+      tags:
+      - UserGroup
+  /groups/{id}/op-list_members:
+    get:
+      description: Lists members of a user group.
+      operationId: UserGroupHandler_list_members
+      parameters:
+      - description: A group ID.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: object
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+          description: A JSON list of group members.
+        '404':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The group is not found.
+      summary: UserGroupHandler list_members
+      tags:
+      - UserGroup
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+  /groups/{id}/op-remove_member:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    post:
+      description: Removes a user from a user group.
+      operationId: UserGroupHandler_remove_member
+      parameters:
+      - description: A group ID.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: object
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              additionalProperties:
+                type: string
+              properties:
+                username:
+                  description: The username to remove.
+                  type: string
+              required:
+              - username
+              type: object
+        required: true
+      responses:
+        '200':
+          description: '204'
+        '400':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: username is required.
+        '404':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The user is not found.
+      summary: UserGroupHandler remove_member
+      tags:
+      - UserGroup
   /installation-results/:
     get:
       description: Read the commissioning results per node visible to the user, optionally
