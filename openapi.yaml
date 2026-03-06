@@ -3859,6 +3859,63 @@ paths:
       summary: UserGroupHandler update
       tags:
       - UserGroup
+  /groups/{id}/op-add_entitlement:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    post:
+      description: Adds an entitlement to a user group.
+      operationId: UserGroupHandler_add_entitlement
+      parameters:
+      - description: A group ID.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: object
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              additionalProperties:
+                type: string
+              properties:
+                entitlement:
+                  description: The entitlement name.
+                  type: string
+                resource_id:
+                  description: The resource ID. Must be 0 for 'maas' type.
+                  type: integer
+                resource_type:
+                  description: The resource type ('maas' or 'pool').
+                  type: string
+              required:
+              - resource_type
+              - resource_id
+              - entitlement
+              type: object
+        required: true
+      responses:
+        '200':
+          description: '200'
+        '400':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Invalid request parameters.
+        '404':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The group or resource is not found.
+      summary: UserGroupHandler add_entitlement
+      tags:
+      - UserGroup
   /groups/{id}/op-add_member:
     parameters:
     - in: path
@@ -3948,6 +4005,63 @@ paths:
       required: true
       schema:
         type: string
+  /groups/{id}/op-remove_entitlement:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    post:
+      description: Removes an entitlement from a user group.
+      operationId: UserGroupHandler_remove_entitlement
+      parameters:
+      - description: A group ID.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: object
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              additionalProperties:
+                type: string
+              properties:
+                entitlement:
+                  description: The entitlement name.
+                  type: string
+                resource_id:
+                  description: The resource ID.
+                  type: integer
+                resource_type:
+                  description: The resource type ('maas' or 'pool').
+                  type: string
+              required:
+              - resource_type
+              - resource_id
+              - entitlement
+              type: object
+        required: true
+      responses:
+        '200':
+          description: '204'
+        '400':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Invalid request parameters.
+        '404':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The group is not found.
+      summary: UserGroupHandler remove_entitlement
+      tags:
+      - UserGroup
   /groups/{id}/op-remove_member:
     parameters:
     - in: path
