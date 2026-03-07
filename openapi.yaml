@@ -3971,6 +3971,40 @@ paths:
       summary: UserGroupHandler add_member
       tags:
       - UserGroup
+  /groups/{id}/op-list_entitlements:
+    get:
+      description: Lists entitlements of a user group.
+      operationId: UserGroupHandler_list_entitlements
+      parameters:
+      - description: A group ID.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: object
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+          description: A JSON list of entitlements.
+        '404':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The group is not found.
+      summary: UserGroupHandler list_entitlements
+      tags:
+      - UserGroup
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
   /groups/{id}/op-list_members:
     get:
       description: Lists members of a user group.
