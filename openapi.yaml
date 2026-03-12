@@ -12946,6 +12946,197 @@ paths:
       summary: Dismiss a notification
       tags:
       - Notification
+  /oidc-providers/:
+    get:
+      description: List all configured OIDC providers.
+      operationId: OidcProvidersHandler_read
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+          description: A JSON object containing a list of OIDC provider objects.
+      summary: List OIDC providers
+      tags:
+      - OIDC providers
+    post:
+      description: Create a new OIDC provider.
+      operationId: OidcProvidersHandler_create
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              additionalProperties:
+                type: string
+              properties:
+                client_id:
+                  description: Client ID for the new OIDC provider.
+                  type: string
+                client_secret:
+                  description: Client secret for the new OIDC provider.
+                  type: string
+                enabled:
+                  description: Whether the OIDC provider is enabled. Defaults to false.
+                  type: boolean
+                issuer_url:
+                  description: Issuer URL for the new OIDC provider.
+                  type: string
+                name:
+                  description: Name for the new OIDC provider.
+                  type: string
+                redirect_uri:
+                  description: Redirect URI for the OIDC provider.
+                  type: string
+                scopes:
+                  description: Space-separated list of scopes for the OIDC provider.
+                  type: string
+                token_type:
+                  description: Token type for the OIDC provider (JWT or Opaque). Defaults
+                    to JWT.
+                  type: string
+              required:
+              - name
+              - issuer_url
+              - client_id
+              - client_secret
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+          description: A JSON object representing the newly created OIDC provider.
+        '404':
+          description: 400 If any required parameters are missing or invalid.
+      summary: Create OIDC provider
+      tags:
+      - OIDC providers
+  /oidc-providers/op-get_active:
+    get:
+      description: Get the currently enabled OIDC provider.
+      operationId: OidcProvidersHandler_get_active
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+          description: A JSON object representing the active OIDC provider.
+        '404':
+          description: 404 If no enabled OIDC provider is found.
+      summary: Get active OIDC provider
+      tags:
+      - OIDC providers
+  /oidc-providers/{id}/:
+    delete:
+      description: Delete an OIDC provider by ID.
+      operationId: OidcProviderHandler_delete
+      parameters:
+      - description: ID of the OIDC provider to delete.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '204'
+        '404':
+          description: 404 If no OIDC provider with the specified ID exists.
+      summary: Delete OIDC provider
+      tags:
+      - OIDC provider
+    get:
+      description: Retrieve an OIDC provider by ID.
+      operationId: OidcProviderHandler_read
+      parameters:
+      - description: ID of the OIDC provider to retrieve.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+          description: A JSON object representing the OIDC provider.
+        '404':
+          description: 404 If no OIDC provider with the specified ID exists.
+      summary: Get OIDC provider
+      tags:
+      - OIDC provider
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    put:
+      description: Update an existing OIDC provider by ID.
+      operationId: OidcProviderHandler_update
+      parameters:
+      - description: ID of the OIDC provider to update.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              additionalProperties:
+                type: string
+              properties:
+                client_id:
+                  description: New client ID for the OIDC provider.
+                  type: string
+                client_secret:
+                  description: New client secret for the OIDC provider.
+                  type: string
+                enabled:
+                  description: Whether the OIDC provider should be enabled.
+                  type: boolean
+                issuer_url:
+                  description: New issuer URL for the OIDC provider.
+                  type: string
+                name:
+                  description: New name for the OIDC provider.
+                  type: string
+                redirect_uri:
+                  description: New redirect URI for the OIDC provider.
+                  type: string
+                scopes:
+                  description: Space-separated list of scopes for the OIDC provider.
+                  type: string
+                token_type:
+                  description: New token type for the OIDC provider (JWT or Opaque).
+                  type: string
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+          description: A JSON object representing the updated OIDC provider.
+        '404':
+          description: 404 If no OIDC provider with the specified ID exists.
+      summary: Update OIDC provider
+      tags:
+      - OIDC provider
   /package-repositories/:
     get:
       description: List all available package repositories.
