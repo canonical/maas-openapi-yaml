@@ -140,7 +140,8 @@ paths:
                   description: 'A public SSH key should be provided in the request
                     payload as form data with the name ''key'': `key: "key-type public-key-data"`
                     - `key-type`: ecdsa-sha2-nistp256, ecdsa-sha2-nistp384, ecdsa-sha2-nistp521,
-                    ssh-ed25519, ssh-rsa - `public key data`: Base64-encoded key data.'
+                    ssh-ed25519, ssh-rsa, sk-ssh-ed25519{at}openssh.com, sk-ecdsa-sha2-nistp256{at}openssh.com
+                    - `public key data`: Base64-encoded key data.'
                   type: string
               required:
               - key
@@ -611,12 +612,24 @@ paths:
               additionalProperties:
                 type: string
               properties:
+                enabled:
+                  description: Whether this BootSource is enabled or not.
+                  type: boolean
                 keyring_data:
                   description: The GPG keyring for this BootSource, base64-encoded.
                   type: string
                 keyring_filename:
                   description: The path to the keyring file for this BootSource.
                   type: string
+                name:
+                  description: The name of the BootSource.
+                  type: string
+                priority:
+                  description: The priority for this BootSource.
+                  type: integer
+                skip_keyring_verification:
+                  description: If true, keyring signature verification will be skipped.
+                  type: boolean
                 url:
                   description: The URL of the BootSource.
                   type: string
@@ -926,6 +939,9 @@ paths:
               additionalProperties:
                 type: string
               properties:
+                enabled:
+                  description: Whether this BootSource is enabled or not.
+                  type: boolean
                 keyring_data:
                   description: The GPG keyring for this BootSource, base64-encoded
                     data.
@@ -933,6 +949,15 @@ paths:
                 keyring_filename:
                   description: The path to the keyring file for this BootSource.
                   type: string
+                name:
+                  description: The name of the BootSource.
+                  type: string
+                priority:
+                  description: The priority for this BootSource.
+                  type: integer
+                skip_keyring_verification:
+                  description: If true, keyring signature verification will be skipped.
+                  type: boolean
                 url:
                   description: The URL of the BootSource.
                   type: string
@@ -4694,7 +4719,8 @@ paths:
           \ of a default VLAN and Fabric for discovered network interfaces when MAAS\
           \ cannot connect it to an existing one. When disabled, the interface is\
           \ left disconnected in these cases.\n* `boot_images_auto_import` Automatically\
-          \ import/refresh the boot images every 60.0 minutes.\n* `boot_images_no_proxy`\
+          \ import/refresh the boot images periodically. The interval is defined by\
+          \ the configuration 'boot_images_sync_interval_minutes'.\n* `boot_images_no_proxy`\
           \ Set no_proxy with the image repository address when MAAS is behind (or\
           \ set with) a proxy. By default, when MAAS is behind (and set with) a proxy,\
           \ it is used to download images from the image repository. In some situations\
@@ -4892,17 +4918,18 @@ paths:
                     \ interfaces when MAAS cannot connect it to an existing one. When\
                     \ disabled, the interface is left disconnected in these cases.\n\
                     * `boot_images_auto_import` Automatically import/refresh the boot\
-                    \ images every 60.0 minutes.\n* `boot_images_no_proxy` Set no_proxy\
-                    \ with the image repository address when MAAS is behind (or set\
-                    \ with) a proxy. By default, when MAAS is behind (and set with)\
-                    \ a proxy, it is used to download images from the image repository.\
-                    \ In some situations (e.g. when using a local image repository)\
-                    \ it doesn't make sense for MAAS to use the proxy to download\
-                    \ images because it can access them directly. Setting this option\
-                    \ allows MAAS to access the (local) image repository directly\
-                    \ by setting the no_proxy variable for the MAAS env with the address\
-                    \ of the image repository.\n* `commissioning_distro_series` Default\
-                    \ Ubuntu release used for commissioning.\n* `completed_intro`\
+                    \ images periodically. The interval is defined by the configuration\
+                    \ 'boot_images_sync_interval_minutes'.\n* `boot_images_no_proxy`\
+                    \ Set no_proxy with the image repository address when MAAS is\
+                    \ behind (or set with) a proxy. By default, when MAAS is behind\
+                    \ (and set with) a proxy, it is used to download images from the\
+                    \ image repository. In some situations (e.g. when using a local\
+                    \ image repository) it doesn't make sense for MAAS to use the\
+                    \ proxy to download images because it can access them directly.\
+                    \ Setting this option allows MAAS to access the (local) image\
+                    \ repository directly by setting the no_proxy variable for the\
+                    \ MAAS env with the address of the image repository.\n* `commissioning_distro_series`\
+                    \ Default Ubuntu release used for commissioning.\n* `completed_intro`\
                     \ Marks if the initial intro has been completed.\n* `curtin_verbose`\
                     \ Run the fast-path installer with higher verbosity. This provides\
                     \ more detail in the installation logs.\n* `default_boot_interface_link_type`\
