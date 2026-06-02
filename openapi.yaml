@@ -16766,6 +16766,13 @@ paths:
         required: true
         schema:
           type: integer
+      - description: If True, delete the subnet even if it has IP addresses in use
+          by nodes. Defaults to False.
+        in: query
+        name: force
+        required: false
+        schema:
+          type: boolean
       responses:
         '200':
           description: '204'
