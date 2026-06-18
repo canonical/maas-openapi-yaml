@@ -6634,8 +6634,9 @@ paths:
                     added to MAAS.
                   type: boolean
                 install_rackd:
-                  description: If true, the rack controller will be installed on this
-                    machine.
+                  description: Deprecated. If true, the rack controller will be installed
+                    on this machine. This feature has been removed and can't be used
+                    anymore.
                   type: boolean
                 register_vmhost:
                   description: If true, the machine will be registered as a LXD VM
