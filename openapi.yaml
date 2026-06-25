@@ -4770,20 +4770,23 @@ paths:
           \ when a machine is deployed.\n* `enable_third_party_drivers` Enable the\
           \ installation of proprietary drivers (i.e. HPVSA).\n* `enlist_commissioning`\
           \ Whether to run commissioning during enlistment. Enables running all built-in\
-          \ commissioning scripts during enlistment.\n* `force_v1_network_yaml` Always\
-          \ use the legacy v1 YAML (rather than Netplan format, also known as v2 YAML)\
-          \ when composing the network configuration for a machine.\n* `hardware_sync_interval`\
-          \ Hardware Sync Interval. The interval to send hardware info to MAAS fromhardware\
-          \ sync enabled machines, in systemd time span syntax.\n* `http_proxy` Proxy\
-          \ for APT or YUM and HTTP/HTTPS. This will be passed onto provisioned nodes\
-          \ to use as a proxy for APT or YUM traffic. MAAS also uses the proxy for\
-          \ downloading boot images. If no URL is provided, the built-in MAAS proxy\
-          \ will be used.\n* `kernel_opts` Boot parameters to pass to the kernel by\
-          \ default.\n* `maas_auto_ipmi_cipher_suite_id` MAAS IPMI Default Cipher\
-          \ Suite ID. The default IPMI cipher suite ID to use when connecting to the\
-          \ BMC via ipmitools Available choices are:\n  + ` ` (freeipmi-tools default).\n\
-          \  + `12` (12 - HMAC-MD5:MD5-128:AES-CBC-128).\n  + `17` (17 - HMAC-SHA256:HMAC_SHA256_128:AES-CBC-128).\n\
-          \  + `3` (3 - HMAC-SHA1:HMAC-SHA1-96:AES-CBC-128).\n  + `8` (8 - HMAC-MD5:HMAC-MD5-128:AES-CBC-128).\n\
+          \ commissioning scripts during enlistment.\n* `experimental_switch_provisioning`\
+          \ Enable the experimental switch provisioning feature. Enables the experimental\
+          \ switch provisioning feature. This feature may have limited functionality.\n\
+          * `force_v1_network_yaml` Always use the legacy v1 YAML (rather than Netplan\
+          \ format, also known as v2 YAML) when composing the network configuration\
+          \ for a machine.\n* `hardware_sync_interval` Hardware Sync Interval. The\
+          \ interval to send hardware info to MAAS fromhardware sync enabled machines,\
+          \ in systemd time span syntax.\n* `http_proxy` Proxy for APT or YUM and\
+          \ HTTP/HTTPS. This will be passed onto provisioned nodes to use as a proxy\
+          \ for APT or YUM traffic. MAAS also uses the proxy for downloading boot\
+          \ images. If no URL is provided, the built-in MAAS proxy will be used.\n\
+          * `kernel_opts` Boot parameters to pass to the kernel by default.\n* `maas_auto_ipmi_cipher_suite_id`\
+          \ MAAS IPMI Default Cipher Suite ID. The default IPMI cipher suite ID to\
+          \ use when connecting to the BMC via ipmitools Available choices are:\n\
+          \  + ` ` (freeipmi-tools default).\n  + `12` (12 - HMAC-MD5:MD5-128:AES-CBC-128).\n\
+          \  + `17` (17 - HMAC-SHA256:HMAC_SHA256_128:AES-CBC-128).\n  + `3` (3 -\
+          \ HMAC-SHA1:HMAC-SHA1-96:AES-CBC-128).\n  + `8` (8 - HMAC-MD5:HMAC-MD5-128:AES-CBC-128).\n\
           * `maas_auto_ipmi_k_g_bmc_key` The IPMI K_g key to set during BMC configuration.\
           \ This IPMI K_g BMC key is used to encrypt all IPMI traffic to a BMC. Once\
           \ set, all clients will REQUIRE this key upon being commissioned. Any current\
@@ -4977,17 +4980,20 @@ paths:
                     * `enable_third_party_drivers` Enable the installation of proprietary\
                     \ drivers (i.e. HPVSA).\n* `enlist_commissioning` Whether to run\
                     \ commissioning during enlistment. Enables running all built-in\
-                    \ commissioning scripts during enlistment.\n* `force_v1_network_yaml`\
-                    \ Always use the legacy v1 YAML (rather than Netplan format, also\
-                    \ known as v2 YAML) when composing the network configuration for\
-                    \ a machine.\n* `hardware_sync_interval` Hardware Sync Interval.\
-                    \ The interval to send hardware info to MAAS fromhardware sync\
-                    \ enabled machines, in systemd time span syntax.\n* `http_proxy`\
-                    \ Proxy for APT or YUM and HTTP/HTTPS. This will be passed onto\
-                    \ provisioned nodes to use as a proxy for APT or YUM traffic.\
-                    \ MAAS also uses the proxy for downloading boot images. If no\
-                    \ URL is provided, the built-in MAAS proxy will be used.\n* `kernel_opts`\
-                    \ Boot parameters to pass to the kernel by default.\n* `maas_auto_ipmi_cipher_suite_id`\
+                    \ commissioning scripts during enlistment.\n* `experimental_switch_provisioning`\
+                    \ Enable the experimental switch provisioning feature. Enables\
+                    \ the experimental switch provisioning feature. This feature may\
+                    \ have limited functionality.\n* `force_v1_network_yaml` Always\
+                    \ use the legacy v1 YAML (rather than Netplan format, also known\
+                    \ as v2 YAML) when composing the network configuration for a machine.\n\
+                    * `hardware_sync_interval` Hardware Sync Interval. The interval\
+                    \ to send hardware info to MAAS fromhardware sync enabled machines,\
+                    \ in systemd time span syntax.\n* `http_proxy` Proxy for APT or\
+                    \ YUM and HTTP/HTTPS. This will be passed onto provisioned nodes\
+                    \ to use as a proxy for APT or YUM traffic. MAAS also uses the\
+                    \ proxy for downloading boot images. If no URL is provided, the\
+                    \ built-in MAAS proxy will be used.\n* `kernel_opts` Boot parameters\
+                    \ to pass to the kernel by default.\n* `maas_auto_ipmi_cipher_suite_id`\
                     \ MAAS IPMI Default Cipher Suite ID. The default IPMI cipher suite\
                     \ ID to use when connecting to the BMC via ipmitools Available\
                     \ choices are:\n  + ` ` (freeipmi-tools default).\n  + `12` (12\
