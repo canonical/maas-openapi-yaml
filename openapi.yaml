@@ -13011,7 +13011,7 @@ paths:
                   description: Client secret for the new OIDC provider.
                   type: string
                 enabled:
-                  description: Whether the OIDC provider is enabled. Defaults to false.
+                  description: Whether the OIDC provider is enabled.
                   type: boolean
                 issuer_url:
                   description: Issuer URL for the new OIDC provider.
@@ -13026,14 +13026,22 @@ paths:
                   description: Space-separated list of scopes for the OIDC provider.
                   type: string
                 token_type:
-                  description: Token type for the OIDC provider (JWT or Opaque). Defaults
-                    to JWT.
+                  description: Token type for the OIDC provider (JWT or Opaque).
+                  type: string
+                vendor:
+                  description: Vendor for the OIDC provider (Generic, EntraID, Auth0,
+                    or Keycloak).
                   type: string
               required:
               - name
               - issuer_url
               - client_id
               - client_secret
+              - enabled
+              - token_type
+              - vendor
+              - redirect_uri
+              - scopes
               type: object
         required: true
       responses:
@@ -13154,6 +13162,10 @@ paths:
                   type: string
                 token_type:
                   description: New token type for the OIDC provider (JWT or Opaque).
+                  type: string
+                vendor:
+                  description: New vendor for the OIDC provider (Generic, EntraID,
+                    Auth0, or Keycloak).
                   type: string
               type: object
         required: true
