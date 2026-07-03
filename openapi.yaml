@@ -12788,8 +12788,10 @@ paths:
                     display so that it doesn't break MAAS HTML.
                   type: string
                 user:
-                  description: User ID this notification is intended for. By default
-                    it will not be targeted to any individual user.
+                  description: User ID or username this notification is intended for.
+                    Numeric values are treated as user IDs; non-numeric values are
+                    treated as usernames. By default, it will not be targeted to any
+                    individual user.
                   type: string
                 users:
                   description: True to notify all users, defaults to false, i.e. not
@@ -12914,8 +12916,10 @@ paths:
                     display so that it doesn't break MAAS HTML.
                   type: string
                 user:
-                  description: User ID this notification is intended for. By default
-                    it will not be targeted to any individual user.
+                  description: User ID or username this notification is intended for.
+                    Numeric values are treated as user IDs; non-numeric values are
+                    treated as usernames. By default, it will not be targeted to any
+                    individual user.
                   type: string
                 users:
                   description: True to notify all users, defaults to false, i.e. not
