@@ -7967,8 +7967,7 @@ paths:
             text/plain:
               schema:
                 type: string
-          description: Service layer not initialized in this thread. This is likely
-            to be a programming error and should never happen.
+          description: '''str'' object has no attribute ''user'''
       summary: NetworkHandler connect_macs
       tags:
       - Network (deprecated)
@@ -7990,8 +7989,7 @@ paths:
             text/plain:
               schema:
                 type: string
-          description: Service layer not initialized in this thread. This is likely
-            to be a programming error and should never happen.
+          description: '''str'' object has no attribute ''user'''
       summary: NetworkHandler disconnect_macs
       tags:
       - Network (deprecated)
